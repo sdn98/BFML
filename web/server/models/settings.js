@@ -74,6 +74,14 @@ optimizer: {
   type: String,
   required: true,
 },
+environment: {
+  type: String,
+  required: true,
+},
+folder: {
+  type: String,
+  required: true,
+},
 script: {
   type: String,
   required: true,

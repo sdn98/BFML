@@ -4,3 +4,18 @@
     text-align: center;
     font-family: sans-serif;
 }
+
+.train-status-subtitle {
+    color: rgb(0, 185, 242);
+    margin-top: 50px;
+    font-family: sans-serif;
+}
+
+.train-table-cell{
+    text-align: center !important;
+}  
+
+.train-table-head-cell{
+        text-align: center !important;
+        font-weight: bold !important;
+}

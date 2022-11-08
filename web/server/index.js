@@ -22,7 +22,7 @@ app.get('/', (req, res, next) => {
 
     app.use("/api/settings", require("./routes/settings"));
 
-    const PORT = 8080;
+    const PORT = 5000;
 
     const server = app.listen(PORT, () =>
       console.log(`Server running on port ${PORT}`)

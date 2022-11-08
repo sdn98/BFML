@@ -8,7 +8,7 @@ const { json } = require('express');
 //for settings
 
 exports.createSetting = async (req, res, next) => {
-    const { identifier, library, version, model, fedAlgo, clients_number, dataset, dataset_url, dataset_format, dataset_size, datapoints_number, GPU, mode, epochs, batch_size, learning_rate, loss_function, optimizer, script } = req.body;
+    const { identifier, library, version, model, fedAlgo, clients_number, dataset, dataset_url, dataset_format, dataset_size, datapoints_number, GPU, mode, epochs, batch_size, learning_rate, loss_function, optimizer, environment, folder, script } = req.body;
     try {
         const Setting = await Settings.create({
             identifier,
@@ -29,6 +29,8 @@ exports.createSetting = async (req, res, next) => {
             learning_rate,
             loss_function,
             optimizer,
+            environment,
+            folder,
             script
         });
         return res.status(200).json({
@@ -117,6 +119,10 @@ exports.updateSetting = async (req, res, next) => {
             updated = await Settings.updateOne(setting, { loss_function: value });
         } else if (key === "optimizer") {
             updated = await Settings.updateOne(setting, { optimizer: value });
+        }  else if (key === "environment") {
+            updated = await Settings.updateOne(setting, { environment: value });
+        } else if (key === "folder") {
+            updated = await Settings.updateOne(setting, { folder: value });
         } else if (key === "script") {
             updated = await Settings.updateOne(script, { script: value });
         }
@@ -220,7 +226,7 @@ function sanitize(stdout) {
     }
     for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
-            matrix[i][j] = parseFloat(cxccccmatrix[i][j])
+            matrix[i][j] = parseFloat(matrix[i][j])
         }
     }
 

@@ -37,6 +37,9 @@ export function CreateDialog() {
     const epochs = useStore((state) => state.epochs);
     const optimizer = useStore((state) => state.optimizer);
     const loss_function = useStore((state) => state.loss_function);
+    const environment = useStore((state) => state.environment);
+    const folder = useStore((state) => state.folder);
+    const script = useStore((state) => state.script);
 
     const closeCreateDialog = useStore((state) => state.closeCreateDialog);
     const addSetting = useStore((state) => state.addSetting);
@@ -58,6 +61,9 @@ export function CreateDialog() {
     const setLearningRate = useStore((state) => state.setLearningRate);
     const setLossFunction = useStore((state) => state.setLossFunction);
     const setOptimizer = useStore((state) => state.setOptimizer);
+    const setEnvironment = useStore((state) => state.setEnvironment);
+    const setFolder = useStore((state) => state.setFolder);
+    const setScript = useStore((state) => state.setScript);
 
     const onInputChangeIdentifier = (e) => {
         setIdentifier(e.target.value)
@@ -113,7 +119,15 @@ export function CreateDialog() {
     const onInputChangeOptimizer = (e) => {
         setOptimizer(e.target.value)
     };
-
+    const onInputChangeEnvironment = (e) => {
+        setEnvironment(e.target.value)
+    };
+    const onInputChangeFolder = (e) => {
+        setFolder(e.target.value)
+    };
+    const onInputChangeScript = (e) => {
+        setScript(e.target.value)
+    };
     const onCancel = (e) => {
         setIdentifier("")
         setLibrary("pysyft")
@@ -133,6 +147,9 @@ export function CreateDialog() {
         setLearningRate("1")
         setLossFunction("cross_entropy")
         setOptimizer("sdg")
+        setEnvironment("syft")
+        setFolder("pysyft")
+        setScript("image_classifier_cnn.py")
         closeCreateDialog()
     };
     const onSubmit = async (e) => {
@@ -149,7 +166,7 @@ export function CreateDialog() {
             'fedAlgo': fedAlgo,
             'clients_number': parseInt(clients_number),
             'dataset': dataset,
-            'dataset_url': "../../../data" + dataset_url,
+            'dataset_url': "../../data" + dataset_url,
             'dataset_format': dataset_format,
             'dataset_size': parseInt(dataset_size),
             'datapoints_number': parseInt(datapoints_number),
@@ -159,7 +176,10 @@ export function CreateDialog() {
             'learning_rate': "0.0" + learning_rate,
             'epochs': parseInt(epochs),
             'optimizer': optimizer,
-            'loss_function': loss_function
+            'loss_function': loss_function,
+            'environment': environment,
+            'folder': folder,
+            'script': script
         };
         axios.post('http://localhost:5000/api/settings/createSetting', data, axiosConfig)
             .then((response) => {
@@ -189,6 +209,9 @@ export function CreateDialog() {
         setLearningRate("1")
         setLossFunction("cross_entropy")
         setOptimizer("sdg")
+        setEnvironment("syft")
+        setFolder("pysyft")
+        setScript("image_classifier_cnn.py")
         closeCreateDialog();
     }
     return <Dialog open={createDialogState} onClose={closeCreateDialog}>
@@ -466,6 +489,51 @@ export function CreateDialog() {
                     required
                 >
                     <MenuItem value="cross_entropy">cross_entropy</MenuItem>
+                </Select>
+                <InputLabel id="demo-simple-select-label">Environment</InputLabel>
+                <Select
+                    style={{ marginBottom: '10px' }}
+                    id="environment"
+                    defaultValue="syft"
+                    label="environment"
+                    onChange={onInputChangeEnvironment}
+                    fullWidth
+                    required
+                >
+                    <MenuItem value="syft">syft</MenuItem>
+                    <MenuItem value="ibm">ibm</MenuItem>
+                    <MenuItem value="fedml">fedml</MenuItem>
+                    <MenuItem value="flower">flower</MenuItem>
+                    <MenuItem value="pytorch">pytorch</MenuItem>
+                </Select>
+                <InputLabel id="demo-simple-select-label">Folder</InputLabel>
+                <Select
+                    style={{ marginBottom: '10px' }}
+                    id="folder"
+                    defaultValue="pysyft"
+                    label="folder"
+                    onChange={onInputChangeFolder}
+                    fullWidth
+                    required
+                >
+                    <MenuItem value="pysyft">pysyft</MenuItem>
+                    <MenuItem value="ibm">ibm</MenuItem>
+                    <MenuItem value="fedml">fedml</MenuItem>
+                    <MenuItem value="flower">flower</MenuItem>
+                    <MenuItem value="centralized">centralized</MenuItem>
+                </Select>
+                <InputLabel id="demo-simple-select-label">Script</InputLabel>
+                <Select
+                    style={{ marginBottom: '10px' }}
+                    id="script"
+                    defaultValue="image_classifier_cnn.py"
+                    label="script"
+                    onChange={onInputChangeScript}
+                    fullWidth
+                    required
+                >
+                    <MenuItem value="image_classifier_cnn.py">image_classifier_cnn.py</MenuItem>
+                    <MenuItem value="image_classifier_logreg.py">image_classifier_logreg.py</MenuItem>
                 </Select>
                 <DialogActions>
                     <Button onClick={onCancel}>Cancel</Button>

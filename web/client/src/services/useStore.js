@@ -12,7 +12,7 @@ const useStore = create((set) => ({
   version: '0.2.9',
   model: 'CNN',
   fedAlgo: 'fedAvg',
-  clients_number: 0,
+  clients_number: 2,
   dataset: 'MNIST',
   dataset_url: '/mnist/gz/mnist_train',
   dataset_format: 'img',
@@ -25,6 +25,9 @@ const useStore = create((set) => ({
   learning_rate: '1',
   loss_function: 'cross_entropy',
   optimizer: 'sdg',
+  environment: 'syft',
+  folder: 'pysyft',
+  script: 'image_classifier_cnn.py',
 
 
   openDeleteDialog: () => set((state) => ({ deleteDialogState: true })),
@@ -62,6 +65,9 @@ const useStore = create((set) => ({
     setLearningRate: (learning_rate) => set((state) => ({ learning_rate: learning_rate })),  
     setLossFunction: (loss_function) => set((state) => ({ loss_function: loss_function })),
     setOptimizer: (optimizer) => set((state) => ({ optimizer: optimizer })),
+    setEnvironment: (environment) => set((state) => ({ environment: environment })),
+    setFolder: (folder) => set((state) => ({ folder: folder })),
+    setScript: (script) => set((state) => ({ script: script })),
 
 }))
 export default useStore
