@@ -15,6 +15,6 @@ router.route("/getSetting/:id").get(getSetting);
 router.route("/getSettings").get(getSettings);
 router.route("/deleteSetting/:id").delete(deleteSetting);
 router.route("/updateSetting").put(updateSetting);
-router.route("/trainSetting/:id").post(trainSetting);
+router.route("/trainSetting/:id").get(trainSetting);
 
 module.exports = router;

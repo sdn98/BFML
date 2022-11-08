@@ -74,6 +74,10 @@ optimizer: {
   type: String,
   required: true,
 },
+script: {
+  type: String,
+  required: true,
+},
 });
 
 const library = mongoose.model("library", librarySchema);

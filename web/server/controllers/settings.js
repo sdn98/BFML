@@ -1,11 +1,14 @@
 
 const Settings = require('../models/settings');
 const https = require('https');
+let { PythonShell } = require('python-shell')
+const { exec } = require('child_process');
+const { json } = require('express');
 
 //for settings
 
 exports.createSetting = async (req, res, next) => {
-    const { identifier, library, version, model, fedAlgo, clients_number, dataset, dataset_url, dataset_format, dataset_size, datapoints_number, GPU, mode, epochs, batch_size, learning_rate, loss_function, optimizer } = req.body;
+    const { identifier, library, version, model, fedAlgo, clients_number, dataset, dataset_url, dataset_format, dataset_size, datapoints_number, GPU, mode, epochs, batch_size, learning_rate, loss_function, optimizer, script } = req.body;
     try {
         const Setting = await Settings.create({
             identifier,
@@ -25,7 +28,8 @@ exports.createSetting = async (req, res, next) => {
             batch_size,
             learning_rate,
             loss_function,
-            optimizer
+            optimizer,
+            script
         });
         return res.status(200).json({
             Setting
@@ -113,6 +117,8 @@ exports.updateSetting = async (req, res, next) => {
             updated = await Settings.updateOne(setting, { loss_function: value });
         } else if (key === "optimizer") {
             updated = await Settings.updateOne(setting, { optimizer: value });
+        } else if (key === "script") {
+            updated = await Settings.updateOne(script, { script: value });
         }
         return res.status(200).json(updated);
     } catch (err) {
@@ -125,10 +131,21 @@ exports.updateSetting = async (req, res, next) => {
 
 exports.trainSetting = async (req, res, next) => {
     try {
-        const Trained = await Settings.findById(req.params.id).exec();
-        return res.status(200).json({
-            Trained
-        });
+        // const toTrain = await Settings.findById(req.params.id).exec();
+        // const script = toTrain.script;
+        // const env = toTrain.environment;
+
+        var script = exec('conda run -n pytorch python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\centralized\\image_classifier_logreg.py',
+            (error, stdout) => {
+                let metrics = sanitize(stdout)
+                return res.status(200).json({
+                    metrics
+                });
+                if (error !== null) {
+                    console.log(`exec error: ${error}`);
+                }
+            });
+
     } catch (err) {
         return res.status(500).json({
             error: 'Internal server error',
@@ -136,3 +153,89 @@ exports.trainSetting = async (req, res, next) => {
         });
     }
 }
+
+function sanitize(stdout) {
+    let metrics = stdout.replace(/(\r\n|\n|\r)/gm, "")
+    metrics = metrics.split(";")
+    let time = metrics[0]
+    time = time.replace("time:", "")
+    time = time.substring(0, 5) + " s";
+    let network = metrics[1]
+    network = network.replace("network:", "")
+    network = parseFloat(network)
+    network = network / 1024
+    network = String(network).substring(0, 5) + " KB"
+    let memory = metrics[2]
+    memory = memory.replace("memory:", "")
+    memory = memory.substring(0, 6) + " MB"
+    let cpu = metrics[3]
+    cpu = cpu.replace("cpu:", "")
+    cpu = cpu + " %"
+    let loss = metrics[4]
+    loss = loss.replace("loss:", "")
+    loss = loss.substring(0, 6)
+    let accuracy = metrics[5]
+    accuracy = accuracy.replace("accuracy:tensor(", "")
+    accuracy = accuracy.substring(0, 5) + " %"
+    let classes = metrics[6]
+    classes = classes.replaceAll(" ", "")
+    classes = classes.replaceAll("'", "")
+    classes = classes.replace("classes:[", "")
+    classes = classes.replace("]", "")
+    classes = classes.split(",")
+    let precision = metrics[7]
+    precision = precision.replace("precision:[", "")
+    precision = precision.replace("]", "")
+    precision = precision.split(" ")
+    precision = precision.filter(e => e != "");
+    for (let i = 0; i < precision.length; i++) {
+        precision[i] = precision[i].substring(0, 5) 
+    }
+    let recall = metrics[8]
+    recall = recall.replace("recall:[", "")
+    recall = recall.replace("]", "")
+    recall = recall.split(" ")
+    recall = recall.filter(e => e != "");
+    for (let i = 0; i < recall.length; i++) {
+        recall[i] = recall[i].substring(0, 5) 
+    }
+    let fone = metrics[9]
+    fone = fone.replace("fone:[", "")
+    fone = fone.replace("]", "")
+    fone = fone.split(" ")
+    fone = fone.filter(e => e != "");
+    for (let i = 0; i < recall.length; i++) {
+        fone[i] = fone[i].substring(0, 5) 
+    }
+    let matrix = metrics[10]
+    matrix = matrix.replace("matrix:[", "")
+    matrix = matrix.split("]")
+    matrix = matrix.filter(e => e != []);
+    for (let i = 0; i < matrix.length; i++) {
+        matrix[i] = matrix[i].split(" ")
+    }
+    for (let i = 0; i < matrix.length; i++) {
+        matrix[i] = matrix[i].filter(e => e != "");
+        matrix[i] = matrix[i].filter(e => e != "[");
+    }
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            matrix[i][j] = parseFloat(cxccccmatrix[i][j])
+        }
+    }
+
+    let result = new Object()
+    result["time"] = time;
+    result["network"] = network;
+    result["memory"] = memory;
+    result["cpu"] = cpu;
+    result["loss"] = loss;
+    result["accuracy"] = accuracy;
+    result["classes"] = classes;
+    result["precision"] = precision;
+    result["recall"] = recall;
+    result["fone"] = fone;
+    result["matrix"] = matrix;
+
+    return result
+} 

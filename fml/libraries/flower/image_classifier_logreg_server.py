@@ -1,34 +1,25 @@
+from typing import List, Tuple
+
 import flwr as fl
-import utils
-from sklearn.metrics import log_loss
-from sklearn.linear_model import LogisticRegression
-from typing import Dict
-
-def fit_round(server_round: int) -> Dict:
-    """Send round number to client."""
-    return {"server_round": server_round}
+from flwr.common import Metrics
 
 
-def get_evaluate_fn(model: LogisticRegression):
-    """Return an evaluation function for server-side evaluation."""
+# Define metric aggregation function
+def weighted_average(metrics: List[Tuple[int, Metrics]]) -> Metrics:
+    # Multiply accuracy of each client by number of examples used
+    accuracies = [num_examples * m["accuracy"] for num_examples, m in metrics]
+    examples = [num_examples for num_examples, _ in metrics]
 
-    _, (X_test, y_test) = utils.load_mnist()
+    # Aggregate and return custom metric (weighted average)
+    return {"accuracy": sum(accuracies) / sum(examples)}
 
-    def evaluate(parameters: fl.common.Weights):
-        utils.set_model_params(model, parameters)
-        loss = log_loss(y_test, model.predict_proba(X_test))
-        accuracy = model.score(X_test, y_test)
-        return loss, {"accuracy": accuracy}
 
-    return evaluate
+# Define strategy
+strategy = fl.server.strategy.FedAvg(evaluate_metrics_aggregation_fn=weighted_average)
 
-# Start Flower server for five rounds of federated learning
-if __name__ == "__main__":
-    model = LogisticRegression()
-    utils.set_initial_params(model)
-    strategy = fl.server.strategy.FedAvg(
-        min_available_clients=2,
-        evaluate_fn=get_evaluate_fn(model),
-        on_fit_config_fn=fit_round,
-    )
-    fl.server.start_server(server_address="0.0.0.0:8080", strategy=strategy, config=fl.server.ServerConfig(num_rounds=3))
+# Start Flower server
+fl.server.start_server(
+    server_address="0.0.0.0:8080",
+    config=fl.server.ServerConfig(num_rounds=3),
+    strategy=strategy,
+)
