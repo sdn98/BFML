@@ -16,7 +16,6 @@ export function Train(props) {
     useEffect(() => {
         getSettingInfo();
     }, []);
-
     const setSetting = useStore((state) => state.setSetting)
     const setting = useStore((state) => state.setting)
     const trained = useStore((state) => state.trained)
@@ -27,7 +26,7 @@ export function Train(props) {
                 "Content-Type": "application/json",
             },
         };
-        console.log(window.location.pathname.substring(7))
+    
         await axios
             .get('http://localhost:5000/api/settings/getSetting/' + window.location.pathname.substring(7), axiosConfig)
             .then((res) => {
@@ -40,7 +39,7 @@ export function Train(props) {
 
         await axios.get('http://localhost:5000/api/settings/trainSetting/' + window.location.pathname.substring(7), axiosConfig)
             .then((res) => {
-                setTrained(res.data.metrics)
+                setTrained(res.data.metrics)  
             })
             .catch((e) => {
                 toast.configure()
@@ -124,8 +123,8 @@ export function Train(props) {
                             <TableCell className="train-table-cell">{setting.clients_number}</TableCell>
                             <TableCell className="train-table-cell">{setting.datapoints_number}</TableCell>
                             <TableCell className="train-table-cell">{setting.dataset_size} MB</TableCell>
-                            <TableCell className="train-table-cell">{setting.datapoints_number / setting.clients_number}</TableCell>
-                            <TableCell className="train-table-cell">{setting.dataset_size / setting.clients_number} MB</TableCell>
+                            <TableCell className="train-table-cell">{String(setting.datapoints_number / setting.clients_number)}</TableCell>
+                            <TableCell className="train-table-cell">{String(setting.dataset_size / setting.clients_number)} MB</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
@@ -164,11 +163,13 @@ export function Train(props) {
                             {(() => {
                                 let classes = [];
                                 if (trained.classes === undefined) {
-                                    return "Still loading...";
+                                    return <TableCell className="train-table-head-cell">Still loading...</TableCell>;
                                 } else {
                                     for (let i = 0; i < trained.classes.length; i++) {
                                         classes.push(<TableCell key={i} className="train-table-cell">{trained.classes[i]}</TableCell>);
                                     }
+                                    console.log('confusion matrix')    
+                                    console.log(trained.matrix)  
                                     return classes;
                                 }
                             })()}
@@ -178,7 +179,7 @@ export function Train(props) {
                             {(() => {
                                 let precision = [];
                                 if (trained.precision === undefined) {
-                                    return "Still loading...";
+                                    return <TableCell className="train-table-head-cell">Still loading...</TableCell>;
                                 } else {
                                     for (let i = 0; i < trained.precision.length; i++) {
                                         precision.push(<TableCell key={i} className="train-table-cell">{trained.precision[i]}</TableCell>);
@@ -192,7 +193,7 @@ export function Train(props) {
                             {(() => {
                                 let recall = [];
                                 if (trained.recall === undefined) {
-                                    return "Still loading...";
+                                    return <TableCell className="train-table-head-cell">Still loading...</TableCell>;
                                 } else {
                                     for (let i = 0; i < trained.recall.length; i++) {
                                         recall.push(<TableCell key={i} className="train-table-cell">{trained.recall[i]}</TableCell>);
@@ -206,7 +207,7 @@ export function Train(props) {
                             {(() => {
                                 let fone = [];
                                 if (trained.fone === undefined) {
-                                    return "Still loading...";
+                                    return <TableCell className="train-table-head-cell">Still loading...</TableCell>;
                                 } else {
                                     for (let i = 0; i < trained.fone.length; i++) {
                                         fone.push(<TableCell key={i} className="train-table-cell">{trained.fone[i]}</TableCell>);
@@ -217,41 +218,7 @@ export function Train(props) {
                         </TableRow>
                     </TableBody>
                 </Table>
-            </TableContainer>
-            <h2 className="train-status-subtitle">Confusion Matrix</h2>
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                    <TableBody>
-                        {/* {(() => {
-                            let matrix = [];
-                            if (trained.matrix === undefined) {
-                                return "Still loading...";
-                            } else {
-                                for (let i = 0; i < trained.matrix.length; i++) {
-                                    matrix.push(
-                                        <TableRow  key={i} className="train-table-cell"> 
-                                       {((i) => {
-                                            let confusion = [];
-                                            if (trained.matrix[i] === undefined) {
-                                                return "Still loading...";
-                                        } else { 
-                                            for (let j = 0; j < trained.matrix[i].length; j++) {
-                                                confusion.push( <TableCell key={j} className="train-table-cell">{trained.matrix[i][j]}</TableCell>);
-                                            }
-                                            return confusion;    
-                                        }
-                                        })()}
-                                    </TableRow>
-                                    );
-                              
-                                }
-                                return matrix;
-                            }
-                        })()} */}
-
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            </TableContainer>            
         </div>
     );
 };
