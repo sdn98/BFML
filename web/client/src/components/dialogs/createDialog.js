@@ -136,14 +136,14 @@ export function CreateDialog() {
         setFedAlgo("fedAvg")
         setClientNum(2)
         setDataset("MNIST")
-        setDatasetURL("/mnist/gz/mnist_train")
+        setDatasetURL("/mnist")
         setDatasetFormat("img")
-        setDatasetSize(50)
-        setDatapointsNum(5000)
+        setDatasetSize(30)
+        setDatapointsNum(70000)
         setGPU(false)
         setMode("simulation")
-        setEpochs(30)
-        setBatchSize(32)
+        setEpochs(10)
+        setBatchSize(30)
         setLearningRate("1")
         setLossFunction("cross_entropy")
         setOptimizer("sdg")
@@ -198,14 +198,14 @@ export function CreateDialog() {
         setFedAlgo("fedAvg")
         setClientNum(2)
         setDataset("MNIST")
-        setDatasetURL("/mnist/gz/mnist_train")
+        setDatasetURL("/mnist")
         setDatasetFormat("img")
-        setDatasetSize(50)
-        setDatapointsNum(5000)
+        setDatasetSize(30)
+        setDatapointsNum(70000)
         setGPU(false)
         setMode("simulation")
-        setEpochs(30)
-        setBatchSize(32)
+        setEpochs(10)
+        setBatchSize(30)
         setLearningRate("1")
         setLossFunction("cross_entropy")
         setOptimizer("sdg")
@@ -291,6 +291,7 @@ export function CreateDialog() {
                     required
                 >
                     <MenuItem value="fedAvg">fedAvg</MenuItem>
+                    <MenuItem value="none">None</MenuItem>
                 </Select>
                 <TextField
                     style={{ marginBottom: '10px' }}
@@ -329,7 +330,7 @@ export function CreateDialog() {
                     id="dataset_url"
                     label="dataset url"
                     className="dataset_url"
-                    defaultValue="/mnist/gz/mnist_train"
+                    defaultValue="/mnist"
                     error={/^\/([^?]+)/.test(dataset_url) ? false : true}
                     helperText={/^\/([^?]+)/.test(dataset_url) ? false : "Please enter a valid dataset url /path/to/data"}
                     type="text"
@@ -359,7 +360,7 @@ export function CreateDialog() {
                     id="dataset_size"
                     label="dataset size in MB"
                     className="dataset_size"
-                    defaultValue={50}
+                    defaultValue={30}
                     type="number"
                     InputProps={{
                         inputProps: {
@@ -376,7 +377,7 @@ export function CreateDialog() {
                     id="datapoints_number"
                     label="datapoints number"
                     className="datapoints_number"
-                    defaultValue={5000}
+                    defaultValue={70000}
                     type="number"
                     InputProps={{
                         inputProps: {
@@ -420,7 +421,7 @@ export function CreateDialog() {
                     id="batch_size"
                     label="batch size"
                     className="batch_size"
-                    defaultValue={32}
+                    defaultValue={30}
                     type="number"
                     InputProps={{
                         inputProps: {
@@ -454,7 +455,7 @@ export function CreateDialog() {
                     id="epochs"
                     label="epochs"
                     className="epochs"
-                    defaultValue={30}
+                    defaultValue={10}
                     InputProps={{
                         inputProps: {
                             max: 1000, min: 1
@@ -534,6 +535,9 @@ export function CreateDialog() {
                 >
                     <MenuItem value="image_classifier_cnn.py">image_classifier_cnn.py</MenuItem>
                     <MenuItem value="image_classifier_logreg.py">image_classifier_logreg.py</MenuItem>
+                    <MenuItem value="image_classifier.py">image_classifier.py</MenuItem>
+                    <MenuItem value="image_classifier_cnn_server.py">image_classifier_cnn_server.py</MenuItem>
+
                 </Select>
                 <DialogActions>
                     <Button onClick={onCancel}>Cancel</Button>

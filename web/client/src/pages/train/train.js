@@ -93,7 +93,7 @@ export function Train(props) {
                         <TableRow>
                             <TableCell className="train-table-cell">{setting.model}</TableCell>
                             <TableCell className="train-table-cell"> {setting.fedAlgo}</TableCell>
-                            <TableCell className="train-table-cell">{setting.gpu}</TableCell>
+                            <TableCell className="train-table-cell">{String(setting.GPU)}</TableCell>
                             <TableCell className="train-table-cell">{setting.mode}</TableCell>
                             <TableCell className="train-table-cell">{setting.epochs}</TableCell>
                             <TableCell className="train-table-cell">{setting.batch_size}</TableCell>
