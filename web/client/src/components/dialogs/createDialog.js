@@ -563,8 +563,6 @@ export function CreateDialog() {
                     <MenuItem value="image_classifier_cnn.py">image_classifier_cnn.py</MenuItem>
                     <MenuItem value="image_classifier_logreg.py">image_classifier_logreg.py</MenuItem>
                     <MenuItem value="image_classifier.py">image_classifier.py</MenuItem>
-                    <MenuItem value="image_classifier_cnn_server.py">image_classifier_cnn_server.py</MenuItem>
-
                 </Select>
                 <DialogActions>
                     <Button onClick={onCancel}>Cancel</Button>

@@ -140,9 +140,10 @@ exports.trainSetting = async (req, res, next) => {
     try {
         const toTrain = await Settings.findById(req.params.id).exec();
         if (toTrain.library == "flower") {
-            const cmd_server = 'conda run -n flower python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\flower\\image_classifier_cnn_server.py'
-            const cmd_client = 'conda run -n flower python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\flower\\image_classifier_cnn_client.py'
-            let single_client_metrics
+            const cmd_server = 'conda run -n ' + toTrain.environment + ' python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\' + toTrain.folder + '\\' + toTrain.script.substring(0, toTrain.script.length - 3) + '_server.py'
+            const cmd_client = 'conda run -n ' + toTrain.environment + ' python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\' + toTrain.folder + '\\' + toTrain.script.substring(0, toTrain.script.length - 3) + '_client.py'
+            let first_client_metrics
+            let second_client_metrics
             let clients_metrics = []
             let server_metrics
             var execute_server = exec(cmd_server,
@@ -154,37 +155,38 @@ exports.trainSetting = async (req, res, next) => {
                     }
                 })
 
-            for (let i = 0; i < toTrain.clients_number; i++) {
-                var execute_client = exec(cmd_client,
-                    (error, stdout) => {
-                        single_client_metrics = sanitizeFlowerClient(stdout)
-                        clients_metrics.push(single_client_metrics)
-                        console.log(stdout)
+            var execute_client_one = exec(cmd_client,
+                (error, stdout) => {
+                    first_client_metrics = sanitizeFlowerClient(stdout)
+                    console.log(stdout)
 
-                        if (error !== null) {
-                            console.log(`exec error: ${error}`);
-                        }
-                    });
-            }
+                    if (error !== null) {
+                        console.log(`exec error: ${error}`);
+                    }
+                });
+            var execute_client_two = exec(cmd_client,
+                (error, stdout) => {
+                    second_client_metrics = sanitizeFlowerClient(stdout)
+                    console.log(stdout)
 
-            execute_client.on('exit', (exitCode) => {
+                    if (error !== null) {
+                        console.log(`exec error: ${error}`);
+                    }
+                });
+
+            execute_client_two.on('exit', (exitCode) => {
                 if (parseInt(exitCode) !== 0) {
                     myEmitter.emit('not-finished');
                 }
-                if (toTrain.clients_number == clients_metrics.length) {
-                    clients_metrics.emit('finished');
-                }
-            })           
-            myEmitter.on('finished', () => {
-                console.log("it works")
-                console.log(server_metrics)
-                console.log(clients_metrics)
-
-                // let metrics = combineFlowerMetrics(server_metrics, clients_metrics)
-                // res.status(200).json({
-                //     metrics
-                // })
+                setTimeout(() => { myEmitter.emit('finished'); }, "1000")
             })
+            myEmitter.on('finished', () => {
+                let metrics = combineFlowerMetrics(server_metrics, first_client_metrics, second_client_metrics)
+                res.status(200).json({
+                    metrics
+                })
+            })
+
         } else {
             const cmd = 'conda run -n ' + toTrain.environment + ' python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\' + toTrain.folder + '\\' + toTrain.script
             var execute = exec(cmd,
@@ -205,23 +207,29 @@ exports.trainSetting = async (req, res, next) => {
         });
     }
 }
-function combineFlowerMetrics(server_metrics, clients_metrics) {
+function combineFlowerMetrics(server_metrics, first_client_metrics, second_client_metrics) {
 
-    let memory = server_metrics.memory
-    for (let i = 0; i < clients_metrics.length; i++) {
-        memory += clients_metrics.memory
+    let memory = server_metrics.memory + first_client_metrics.memory + second_client_metrics.memory
+    memory = String(memory).substring(0, 5) + " MB"
+
+    let loss = String((first_client_metrics.loss + second_client_metrics.loss) / 2).substring(0, 6)
+
+    let precision = []
+    for (let i = 0; i < first_client_metrics.precision.length; i++) {
+        precision.push(parseFloat(String((first_client_metrics.precision[i] + second_client_metrics.precision[i]) / 2).substring(0, 6)))
     }
-    let loss
-    for (let i = 0; i < clients_metrics.length; i++) {
-        loss += clients_metrics.loss
+    let recall = []
+    for (let i = 0; i < first_client_metrics.recall.length; i++) {
+        recall.push(parseFloat(String((first_client_metrics.recall[i] + second_client_metrics.recall[i]) / 2).substring(0, 6)))
     }
-    loss = loss / clients_metrics.length
-    // let precision
-    // for (let i=0; i < clients_metrics.length; i++){
-    //     for (let j=0; j < clients_metrics[i].precision.length; j++){
-    //         precision.push()
-    //     }
-    // }
+    let fone = []
+    for (let i = 0; i < first_client_metrics.fone.length; i++) {
+        fone.push(parseFloat(String((first_client_metrics.fone[i] + second_client_metrics.fone[i]) / 2).substring(0, 6)))
+    }
+    let matrixes = []
+    matrixes.push(first_client_metrics.matrix)
+    matrixes.push(second_client_metrics.matrix)
+
     let result = new Object()
     result["time"] = server_metrics.time;
     result["network"] = server_metrics.network;
@@ -229,11 +237,11 @@ function combineFlowerMetrics(server_metrics, clients_metrics) {
     result["cpu"] = server_metrics.cpu;
     result["loss"] = loss;
     result["accuracy"] = server_metrics.accuracy;
-    result["classes"] = clients_metrics[0].classes;
-    // result["precision"] = precision;
-    // result["recall"] = recall;
-    // result["fone"] = fone;
-    // result["matrix"] = matrix;
+    result["classes"] = second_client_metrics.classes;
+    result["precision"] = precision;
+    result["recall"] = recall;
+    result["fone"] = fone;
+    result["matrix"] = matrixes;
     console.log(result)
     return result
 }
@@ -417,4 +425,115 @@ function sanitize(stdout) {
     result["matrix"] = matrix;
 
     return result
-} 
+}
+
+
+
+
+
+
+
+
+// if (toTrain.library == "flower") {
+ //    const cmd_server = 'conda run -n flower python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\flower\\image_classifier_cnn_server.py'
+ //    const cmd_client = 'conda run -n flower python C:\\Users\\ahmed\\OneDrive\\Bureau\\FMLB\\fml\\libraries\\flower\\image_classifier_cnn_client.py'
+// let single_client_metrics
+// let clients_metrics = []
+// let server_metrics
+// var execute_server = exec(cmd_server,
+//     (error, stdout) => {
+//         server_metrics = sanitizeFlowerServer(stdout)
+//         console.log(stdout)
+//         if (error !== null) {
+//             console.log(`exec error: ${error}`);
+//         }
+//     })
+//for (var i=0; i < toTrain.clients_number; i++){
+//     var execute_client = exec(cmd_client,
+//         (error, stdout) => {
+//             single_client_metrics = sanitizeFlowerClient(stdout)
+//             clients_metrics.push(single_client_metrics)
+//             console.log(stdout)
+
+//             if (error !== null) {
+//                 console.log(`exec error: ${error}`);
+//             }
+//     });
+//}
+
+// execute_client.on('exit', (exitCode) => {
+//     if (parseInt(exitCode) !== 0) {
+//         myEmitter.emit('not-finished');
+//     }
+//     setTimeout(() => {myEmitter.emit('finished');}, "1000")
+// })
+// myEmitter.on('finished', () => {
+//     let metrics = combineFlowerMetrics(server_metrics, clients_metrics)
+//     res.status(200).json({
+//         metrics
+//     })
+// })
+//}
+
+
+// function combineFlowerMetrics(server_metrics, client_metrics) {
+
+//     let memory = server_metrics.memory
+//     for (let i=0; i < client_metrics.length; i++){
+//     memory += client_metrics[i].memory
+//     }
+//     memory = memory / client_metrics.length
+//     memory = String(memory).substring(0,5) + " MB"
+//     let loss
+//     for (let i=0; i < client_metrics.length; i++){
+//     loss += client_metrics[i].loss
+//     }
+//     loss = String(loss).substring(0,5)
+
+//     let precision = client_metrics[0].precision
+//     for (let i=1; i < client_metrics.precision.length; i++){
+//     for (let j=0; j < client_metrics[i].precision.length; j++){
+//          precision[j] += client_metrics[i].precision[j]
+//     }
+//     }
+//     precision =  precision / client_metrics.length
+//     
+//     let recall = client_metrics[0].recall
+//     for (let i=1; i < client_metrics.recall.length; i++){
+//     for (let j=0; j < client_metrics[i].recall.length; j++){
+//          recall[j] += client_metrics[i].recall[j]
+//     }
+//     }
+//     recall =  recall / client_metrics.length
+//     
+//     let fone = client_metrics[0].fone
+//     for (let i=1; i < client_metrics.fone.length; i++){
+//     for (let j=0; j < client_metrics[i].fone.length; j++){
+//          fone[j] += client_metrics[i].fone[j]
+//     }
+//     }
+//     fone =  fone / client_metrics.length
+//     
+//     let matrixes = []
+//     for (let i=0; i < client_metrics.length; i++){
+//         matrixes.push(client_metric[i].matrix)
+//     }
+
+//     let result = new Object()
+//     result["time"] = server_metrics.time;
+//     result["network"] = server_metrics.network;
+//     result["memory"] = memory;
+//     result["cpu"] = server_metrics.cpu;
+//     result["loss"] = loss;
+//     result["accuracy"] = server_metrics.accuracy;
+//     result["classes"] = client_metrics[0].classes;
+//     result["precision"] = precision;
+//     result["recall"] = recall;
+//     result["fone"] = fone;
+//     result["matrix"] = matrixes;
+//     console.log(result)
+//     return result
+// }
+
+
+
