@@ -26,6 +26,10 @@ const librarySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  communication_rounds: {
+    type: Number,
+    required: true,
+  },
   dataset: {
     type: String,
     required: true,

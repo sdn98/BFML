@@ -8,7 +8,10 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torchvision.datasets import MNIST
 from torchvision.transforms import Compose, Normalize, ToTensor
+import os, psutil
+import sys
 from tqdm import tqdm
+from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
 
 # #############################################################################
@@ -54,7 +57,7 @@ class Net(nn.Module):
 def train(net, trainloader, epochs):
     """Train the model on the training set."""
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+    optimizer = torch.optim.SGD(net.parameters(), lr=0.01)
     for _ in range(epochs):
         for images, labels in tqdm(trainloader):
             optimizer.zero_grad()
@@ -66,22 +69,40 @@ def test(net, testloader):
     """Validate the model on the test set."""
     criterion = torch.nn.CrossEntropyLoss()
     correct, total, loss = 0, 0, 0.0
+    y_true = []
+    y_pred = []
     with torch.no_grad():
         for images, labels in tqdm(testloader):
             outputs = net(images.to(DEVICE))
+            y_true.extend(labels.numpy())
+            _, predicted = torch.max(outputs.data, 1)
+            y_pred.extend(predicted.cpu().numpy())
             labels = labels.to(DEVICE)
             loss += criterion(outputs, labels).item()
             total += labels.size(0)
             correct += (torch.max(outputs.data, 1)[1] == labels).sum().item()
+        
+        lf = str(loss / len(testloader.dataset))
+        memory = str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2)
+        classes = str(testloader.dataset.classes)
+        # Precision
+        precision=str(precision_score(y_true, y_pred, average=None))
+        # Recall
+        recall=str(recall_score(y_true, y_pred, average=None))
+        # F1-score
+        fone=str(f1_score(y_true, y_pred, average=None))
+        matrix = str(confusion_matrix(y_true, y_pred))
+        data = ';memory:' + memory  + ';loss:' + lf + ';classes:' + classes + ';precision:' +  precision + ';recall:' +  recall + ';fone:' +  fone + ';matrix:' +  matrix + ';'
+        print(data)
+        sys.stdout.flush()
     return loss / len(testloader.dataset), correct / total
-
 
 def load_data():
     """Load MNIST (training and test set)."""
     trf = Compose([ToTensor(), Normalize((0.5,), (0.5,))])
     trainset = MNIST("../../data/mnist/mnist_train", train=True, download=True, transform=trf)
     testset = MNIST("../../data/mnist/mnist_test", train=False, download=True, transform=trf)
-    return DataLoader(trainset, batch_size=32, shuffle=True), DataLoader(testset)
+    return DataLoader(trainset, batch_size=30, shuffle=True), DataLoader(testset)
 
 # Load model and data (simple CNN, MNIST)
 net = Net().to(DEVICE)
@@ -105,9 +126,7 @@ class FlowerClient(fl.client.NumPyClient):
     def evaluate(self, parameters, config):
         self.set_parameters(parameters)
         loss, accuracy = test(net, testloader)
-        print("accuracy: " + str(accuracy))
         return loss, len(testloader.dataset), {"accuracy": accuracy}
-
 
 # Start Flower client
 fl.client.start_numpy_client(

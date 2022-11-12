@@ -80,6 +80,7 @@ export function Train(props) {
                         <TableRow>
                             <TableCell className="train-table-head-cell">Model</TableCell>
                             <TableCell className="train-table-head-cell">Federated Strategy</TableCell>
+                            <TableCell className="train-table-head-cell">Communication Rounds</TableCell>
                             <TableCell className="train-table-head-cell">GPU</TableCell>
                             <TableCell className="train-table-head-cell">Mode</TableCell>
                             <TableCell className="train-table-head-cell">Epochs</TableCell>
@@ -93,6 +94,7 @@ export function Train(props) {
                         <TableRow>
                             <TableCell className="train-table-cell">{setting.model}</TableCell>
                             <TableCell className="train-table-cell"> {setting.fedAlgo}</TableCell>
+                            <TableCell className="train-table-cell"> {setting.communication_rounds}</TableCell>
                             <TableCell className="train-table-cell">{String(setting.GPU)}</TableCell>
                             <TableCell className="train-table-cell">{setting.mode}</TableCell>
                             <TableCell className="train-table-cell">{setting.epochs}</TableCell>

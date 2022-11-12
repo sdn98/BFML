@@ -4,16 +4,27 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 import syft as sy  # <-- NEW: import the Pysyft library
+import os, psutil
+import sys
+from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
+import time
 
+# declare start time and network use at the begining 
+start_time = time.time()
+old_network = psutil.net_io_counters().bytes_recv + psutil.net_io_counters().bytes_sent
+psutil.cpu_percent(interval=None)
+
+# declare clients and epochs
 hook = sy.TorchHook(torch)  # <-- NEW: hook PyTorch ie add extra functionalities to support Federated Learning
 bob = sy.VirtualWorker(hook, id="bob")  # <-- NEW: define remote worker bob
 alice = sy.VirtualWorker(hook, id="alice")  # <-- NEW: and alice
-epochs = 10
+epochs = 1
 
+# declare parameters
 class Arguments():
     def __init__(self):
-        self.batch_size = 64
-        self.test_batch_size = 1000
+        self.batch_size = 30
+        self.test_batch_size = 30
         self.epochs = epochs
         self.lr = 0.01
         self.momentum = 0.5
@@ -32,6 +43,7 @@ device = torch.device("cuda" if use_cuda else "cpu")
 
 kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 
+# load datasets
 federated_train_loader = sy.FederatedDataLoader( # <-- this is now a FederatedDataLoader 
     datasets.MNIST('../../data/mnist/mnist_train', train=True, download=True,
                    transform=transforms.Compose([
@@ -48,6 +60,7 @@ test_loader = torch.utils.data.DataLoader(
                    ])),
     batch_size=args.test_batch_size, shuffle=True, **kwargs)
 
+# define model
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -66,6 +79,7 @@ class Net(nn.Module):
         x = self.fc2(x)
         return F.log_softmax(x, dim=1)
 
+# define training
 def train(args, model, device, federated_train_loader, optimizer, epoch):
     model.train()
     for batch_idx, (data, target) in enumerate(federated_train_loader): # <-- now it is a distributed dataset
@@ -83,30 +97,58 @@ def train(args, model, device, federated_train_loader, optimizer, epoch):
                 epoch, batch_idx * args.batch_size, len(federated_train_loader) * args.batch_size,
                 100. * batch_idx / len(federated_train_loader), loss.item()))
 
+# define testing
 def test(args, model, device, test_loader):
     model.eval()
     test_loss = 0
     correct = 0
+    y_true = []
+    y_pred = []
     with torch.no_grad():
         for data, target in test_loader:
             data, target = data.to(device), target.to(device)
             output = model(data)
+            y_true.extend(target.numpy())
+            _, predicted = torch.max(output.data, 1)
+            y_pred.extend(predicted.cpu().numpy())
             test_loss += F.nll_loss(output, target, reduction='sum').item() # sum up batch loss
             pred = output.argmax(1, keepdim=True) # get the index of the max log-probability 
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     test_loss /= len(test_loader.dataset)
 
-    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-        test_loss, correct, len(test_loader.dataset),
-        100. * correct / len(test_loader.dataset)))
+    # scrape metrics
+    end_time = time.time()
+    execution_time = end_time - start_time
+    cpu = str(psutil.cpu_percent(interval=None))
+    execution_time = str(execution_time)
+    new_network = psutil.net_io_counters().bytes_recv + psutil.net_io_counters().bytes_sent
+    network = new_network - old_network
+    network = str(network)
+    memory = str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2)
+    lf = str(test_loss)
+    accuracy =str(100. * correct / len(test_loader.dataset))
+    classes = str(test_loader.dataset.classes)
+    matrix = str(confusion_matrix(y_true, y_pred))
+    precision=str(precision_score(y_true, y_pred, average=None))
+    recall=str(recall_score(y_true, y_pred, average=None))
+    fone=str(f1_score(y_true, y_pred, average=None))
 
+    # log metrics
+    data = ';time:' + execution_time + ';network:' + network + ';memory:' + memory + ';cpu:' + cpu + ';loss:' + lf + ';accuracy:' + accuracy + ';classes:' + classes + ';precision:' +  precision + ';recall:' +  recall + ';fone:' +  fone + ';matrix:' +  matrix
+    print(data)
+    sys.stdout.flush()
+
+# declare model
 model = Net().to(device)
 optimizer = optim.SGD(model.parameters(), lr=args.lr) # TODO momentum is not supported at the moment
 
+# training starts
 for epoch in range(1, args.epochs + 1):
     train(args, model, device, federated_train_loader, optimizer, epoch)
-    test(args, model, device, test_loader)
 
+test(args, model, device, test_loader)
+
+# save state
 if (args.save_model):
     torch.save(model.state_dict(), "mnist_cnn.pt")

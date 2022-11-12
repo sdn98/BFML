@@ -45,6 +45,9 @@ export default function SettingCard(props) {
         <Typography variant="body2" className="setting-attribute-large">
         {props.clients_number}
         </Typography>
+        <Typography variant="body2" className="setting-attribute-large">
+        {props.communication_rounds}
+        </Typography>
         <Typography variant="body2" className="setting-attribute">
         {props.dataset}
         </Typography>

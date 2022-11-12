@@ -25,6 +25,7 @@ export function CreateDialog() {
     const model = useStore((state) => state.model);
     const fedAlgo = useStore((state) => state.fedAlgo);
     const clients_number = useStore((state) => state.clients_number);
+    const communication_rounds = useStore((state) => state.communication_rounds);
     const dataset = useStore((state) => state.dataset);
     const dataset_url = useStore((state) => state.dataset_url);
     const dataset_format = useStore((state) => state.dataset_format);
@@ -49,6 +50,7 @@ export function CreateDialog() {
     const setModel = useStore((state) => state.setModel);
     const setFedAlgo = useStore((state) => state.setFedAlgo);
     const setClientNum = useStore((state) => state.setClientNum);
+    const setCommRound = useStore((state) => state.setCommRound);
     const setDataset = useStore((state) => state.setDataset);
     const setDatasetURL = useStore((state) => state.setDatasetURL);
     const setDatasetFormat = useStore((state) => state.setDatasetFormat);
@@ -82,6 +84,9 @@ export function CreateDialog() {
     };
     const onInputChangeClientNum = (e) => {
         setClientNum(e.target.value)
+    };
+    const onInputChangeCommRound = (e) => {
+        setCommRound(e.target.value)
     };
     const onInputChangeDataset = (e) => {
         setDataset(e.target.value)
@@ -135,6 +140,7 @@ export function CreateDialog() {
         setModel("CNN")
         setFedAlgo("fedAvg")
         setClientNum(2)
+        setCommRound(3)
         setDataset("MNIST")
         setDatasetURL("/mnist")
         setDatasetFormat("img")
@@ -165,6 +171,7 @@ export function CreateDialog() {
             'model': model,
             'fedAlgo': fedAlgo,
             'clients_number': parseInt(clients_number),
+            'communication_rounds': parseInt(communication_rounds),
             'dataset': dataset,
             'dataset_url': "../../data" + dataset_url,
             'dataset_format': dataset_format,
@@ -197,6 +204,7 @@ export function CreateDialog() {
         setModel("CNN")
         setFedAlgo("fedAvg")
         setClientNum(2)
+        setCommRound(2)
         setDataset("MNIST")
         setDatasetURL("/mnist")
         setDatasetFormat("img")
@@ -234,20 +242,22 @@ export function CreateDialog() {
                     fullWidth
                     required
                 />
-                <TextField
+                <InputLabel id="demo-simple-select-label">Library</InputLabel>
+                <Select
                     style={{ marginBottom: '10px' }}
-                    autoFocus
-                    onChange={onInputChangeLibrary}
                     id="library"
+                    defaultValue="pysyft"
                     label="library"
-                    className="library"
-                    defaultValue={"pysyft"}
-                    error={library.length > 2 ? false : true}
-                    helperText={library.length > 2 ? false : "Please a least enter a 3 character library name"}
-                    type="text"
+                    onChange={onInputChangeLibrary}
                     fullWidth
                     required
-                />
+                >
+                    <MenuItem value="pysyft">pysyft</MenuItem>
+                    <MenuItem value="ibm">ibm</MenuItem>
+                    <MenuItem value="fedml">fedml</MenuItem>
+                    <MenuItem value="flower">flower</MenuItem>
+                    <MenuItem value="pytorch">pytorch</MenuItem>
+                </Select>
                 <TextField
                     style={{ marginBottom: '10px' }}
                     autoFocus
@@ -305,6 +315,23 @@ export function CreateDialog() {
                     InputProps={{
                         inputProps: {
                             max: 100000, min: 2
+                        }
+                    }}
+                    fullWidth
+                    required
+                />
+                <TextField
+                    style={{ marginBottom: '10px' }}
+                    autoFocus
+                    onChange={onInputChangeCommRound}
+                    id="communication_rounds"
+                    label="communication rounds"
+                    className="communication_rounds"
+                    type="number"
+                    defaultValue={3}
+                    InputProps={{
+                        inputProps: {
+                            max: 100, min: 0
                         }
                     }}
                     fullWidth

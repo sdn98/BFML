@@ -15,6 +15,7 @@ export default function SettingTitles(props) {
         <Typography variant="body2" className="settings-title">model</Typography>
         <Typography variant="body2" className="settings-title-large">strategy</Typography>
         <Typography variant="body2" className="settings-title-large">clients num</Typography>
+        <Typography variant="body2" className="settings-title-large">comm rounds</Typography>
         <Typography variant="body2" className="settings-title">dataset</Typography>
         <Typography variant="body2" className="settings-title-large">dataformat</Typography>
         <Typography variant="body2" className="settings-title-large">datasize</Typography>

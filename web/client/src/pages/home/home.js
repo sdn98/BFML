@@ -24,7 +24,7 @@ const Home = () => {
       .then((res) => {
    
         setSettings(res.data.map((setting) => <SettingCard key={setting._id} id={setting._id} identifier={setting.identifier} 
-        library={setting.library} version={setting.version} model={setting.model} clients_number={setting.clients_number} fedAlgo={setting.fedAlgo} 
+        library={setting.library} version={setting.version} model={setting.model} clients_number={setting.clients_number} communication_rounds={setting.communication_rounds} fedAlgo={setting.fedAlgo} 
         dataset={setting.dataset} dataset_url={setting.dataset_url} dataset_format={setting.dataset_format} dataset_size={setting.dataset_size} datapoints_number={setting.datapoints_number} 
         GPU={setting.GPU} mode={setting.mode} batch_size={setting.batch_size} learning_rate={setting.learning_rate} 
         epochs={setting.epochs} optimizer={setting.optimizer}  loss_function={setting.loss_function}
