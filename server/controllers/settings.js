@@ -201,7 +201,7 @@ function sanitize(stdout) {
     let cpu = metrics[metrics.length - 2].replace("cpu:", "") + " %"
     let memory = metrics[metrics.length - 3].replace("memory:", "").substring(0, 7) + " MB"
     let network = metrics[metrics.length - 4]
-    network = String(parseFloat(network.replace("network:", "")) / 1024).substring(0, 7) + "KB"
+    network = String(parseFloat(network.replace("network:", "")) / 1024).substring(0, 7) + " KB"
     let time = metrics[metrics.length - 5].replace("time:", "").substring(0, 7) + " s";
     let fone = metrics[metrics.length - 6].replace("f1:", "").substring(0, 5) + " %"
     let precision = metrics[metrics.length - 7].replace("precision:", "").substring(0, 5) + " %"

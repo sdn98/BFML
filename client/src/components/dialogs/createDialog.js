@@ -163,7 +163,7 @@ export function CreateDialog() {
         setOptimizer("sdg")
         setEnvironment("syft")
         setFolder("pysyft")
-        setScript("image_classifier_cnn.py")
+        setScript("image_classifier.py")
         closeCreateDialog()
     };
 
@@ -230,7 +230,7 @@ export function CreateDialog() {
         setOptimizer("sdg")
         setEnvironment("syft")
         setFolder("pysyft")
-        setScript("image_classifier_cnn.py")
+        setScript("image_classifier.py")
         closeCreateDialog();
     }
     
@@ -573,8 +573,8 @@ export function CreateDialog() {
                     fullWidth
                     required
                 >
-                    <MenuItem value="image_classifier_cnn.py">image_classifier_cnn.py</MenuItem>
                     <MenuItem value="image_classifier.py">image_classifier.py</MenuItem>
+                    <MenuItem value="image_classifier_cnn.py">image_classifier_cnn.py</MenuItem>
                     <MenuItem value="mnist_image_classifier_cnn_client.py">mnist_image_classifier_cnn_client.py</MenuItem>
                     <MenuItem value="cifar_cnn_config.yaml">cifar_cnn_config.yaml</MenuItem>
                     <MenuItem value="mnist_cnn_config.yaml">mnist_cnn_config.yaml</MenuItem>

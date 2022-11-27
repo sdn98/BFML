@@ -34,7 +34,7 @@ const useStore = create((set) => ({
   optimizer: 'sdg',
   environment: 'syft',
   folder: 'pysyft',
-  script: 'image_classifier_cnn.py',
+  script: 'image_classifier.py',
 
   // open and close the dialogs
   openDeleteDialog: () => set((state) => ({ deleteDialogState: true })),

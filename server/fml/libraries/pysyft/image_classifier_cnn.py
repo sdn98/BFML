@@ -106,7 +106,7 @@ def benchmark():
   else:
     gpu = "0"
   # log metrics
-  data = '{ library: pysyft; \n time: ' + execution_time + '; \n network: ' + network + '; \n memory: ' + memory + '; \n cpu: ' + cpu + '; \n gpu: ' + gpu + '; \n loss: ' + str(total_loss) + '; \n accuracy: ' + str(accuracy)  + '; \n precision: ' +  str(precision) + '; \n recall: ' +  str(recall) + '; \n fone: ' +  str(fone) +"; \n }"
+  data = '{ library: pysyft; \n accuracy: ' + accuracy + '; \n loss: ' + total_loss + '; \n recall: ' + recall + '; \n precision: ' + precision + '; \n f1: ' + fone + '; \n time: ' + execution_time + '; \n network: ' + network  + '; \n memory: ' +  memory + '; \n cpu: ' +  cpu + '; \n gpu: ' +  gpu +"; \n }"
   print(data)
   sys.stdout.flush()
  

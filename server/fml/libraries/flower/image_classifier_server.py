@@ -43,7 +43,7 @@ def weighted_average(metrics: List[Tuple[int, Metrics]]) -> Metrics:
     else:
         gpu = "0"
     # log metrics
-    data = '{ library: flower; \n time: ' + execution_time + '; \n network: ' + network + '; \n memory: ' + memory + '; \n cpu: ' + cpu + '; \n gpu: ' + gpu +  '; \n loss: ' + str(loss) + '; \n accuracy: ' + str(accuracy)  + '; \n precision: ' +  str(precision) + '; \n recall: ' +  str(recall) + '; \n fone: ' +  str(fone) +"; \n }"
+    data = '{ library: flower; \n accuracy: ' + accuracy + '; \n loss: ' + loss + '; \n recall: ' + recall + '; \n precision: ' + precision + '; \n f1: ' + fone + '; \n time: ' + execution_time + '; \n network: ' + network  + '; \n memory: ' +  memory + '; \n cpu: ' +  cpu + '; \n gpu: ' +  gpu +"; \n }"
     print(data)
     sys.stdout.flush()
     os._exit(0)
