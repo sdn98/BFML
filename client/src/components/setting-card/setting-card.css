@@ -1,0 +1,23 @@
+.setting{
+    position: relative;
+    width: 100% !important;
+    height: 60px !important;
+    font-family: sans-serif !important;
+    display: flex !important;
+    flex-direction: row !important;
+    border-radius: 0px !important;
+}
+.setting-attribute{
+    width:60px !important;
+    text-align: center;
+}
+.setting-attribute-large{
+    width:90px !important;
+    text-align: center;
+}
+.setting-buttons{
+    padding: 8px !important;
+    text-align: right;
+    position: absolute;
+    right: 0px;
+}
