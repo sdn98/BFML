@@ -166,15 +166,15 @@ exports.trainSetting = async (req, res, next) => {
                     });
             }
         } else {
-
-            if (toTrain.library == "fedml") {
-                var cmd = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\image_classifier.py --cf " + toTrain.script
-            } else {
-                var cmd = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\" + toTrain.script
-            }
-            console.log(cmd)
+            const cmd = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\image_classifier.py --cf " + toTrain.script 
+            // if (toTrain.library == "fedml") {
+            //     cmd = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\image_classifier.py --cf " + toTrain.script
+            // } else {
+            //     cmd = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\" + toTrain.script
+            // }
             var execute = exec(cmd,
                 (error, stdout) => {
+                    console.log(stdout)
                     metrics = sanitize(stdout)
                     res.status(200).json({
                         metrics

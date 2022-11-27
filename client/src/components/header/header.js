@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import IconButton from '@mui/material/IconButton'
-import logo from '../../assets/fl.png'
+import logo from '../../assets/benchmark.svg'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import CreateDialog from '../dialogs/createDialog'
 import useStore from '../../services/useStore'
