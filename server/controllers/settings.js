@@ -1,38 +1,31 @@
 
 const Settings = require('../models/settings');
+const Datasets = require('../models/datasets');
+const Models = require('../models/models');
 const { exec } = require('child_process');
 require('dotenv').config();
 
 // creates a new experimental setting
 exports.createSetting = async (req, res, next) => {
-    const { identifier, library, version, model, fedAlgo, clients_number, communication_rounds, dataset, dataset_url, dataset_format, dataset_size, datapoints_number, GPU, mode, epochs, batch_size, learning_rate, loss_function, optimizer, environment, folder, script } = req.body;
+    const { identifier, model, fedAlgo, clients_number, communication_rounds, dataset, GPU, mode, epochs, batch_size, learning_rate, loss_function, optimizer } = req.body;
     try {
-        const Setting = await Settings.create({
+        const setting = await Settings.create({
             identifier,
-            library,
-            version,
             model,
             fedAlgo,
             clients_number,
             communication_rounds,
             dataset,
-            dataset_url,
-            dataset_format,
-            dataset_size,
-            datapoints_number,
             GPU,
             mode,
             epochs,
             batch_size,
             learning_rate,
             loss_function,
-            optimizer,
-            environment,
-            folder,
-            script
+            optimizer
         });
         return res.status(200).json({
-            Setting
+            setting
         });
     } catch (err) {
         return res.status(500).json({
@@ -45,8 +38,27 @@ exports.createSetting = async (req, res, next) => {
 // gets all settings in the database
 exports.getSettings = async (req, res, next) => {
     try {
-        let Setting = await Settings.find({}).exec();
-        return res.status(200).json(Setting);
+        let settings = await Settings.find({}).exec();
+        let results = []
+        for (let i = 0; i < settings.length; i++) {
+            let result = new Object();
+            result["_id"] = settings[i]._id;
+            result["identifier"] = settings[i].identifier;
+            result["fedAlgo"] = settings[i].fedAlgo;
+            result["setting_model"] = await Models.findById(settings[i].model).exec();
+            result["setting_dataset"] = await Datasets.findById(settings[i].dataset).exec();
+            result["clients_number"] = settings[i].clients_number;
+            result["communication_rounds"] = settings[i].communication_rounds;
+            result["GPU"] = settings[i].GPU;
+            result["mode"] = settings[i].mode;
+            result["epochs"] = settings[i].epochs;
+            result["batch_size"] = settings[i].batch_size;
+            result["learning_rate"] = settings[i].learning_rate;
+            result["loss_function"] = settings[i].loss_function;
+            result["optimizer"] = settings[i].optimizer;
+            results.push(result);
+        }
+        return res.status(200).json(results);
     } catch (err) {
         return res.status(500).json({
             error: 'Internal server error',
@@ -72,7 +84,30 @@ exports.deleteSetting = async (req, res, next) => {
 exports.getSetting = async (req, res, next) => {
     try {
         let setting = await Settings.findById(req.params.id).exec();
-        return res.status(200).json(setting);
+        let model = await Models.findById(setting.model).exec();
+        let dataset = await Datasets.findById(setting.dataset).exec();
+        let result = new Object();
+        result["_id"] = setting._id;
+        result["identifier"] = setting.identifier;
+        result["library"] = model.library_name;
+        result["script"] = model.script;
+        result["version"] = model.version;
+        result["environment"] = model.environment;
+        result["fedAlgo"] = setting.fedAlgo;
+        result["model"] = model.model;
+        result["dataset"] = dataset.dataset_name;
+        result["dataset_size"] = dataset.dataset_size;
+        result["datapoints_number"] = dataset.datapoints_number;
+        result["clients_number"] = setting.clients_number;
+        result["communication_rounds"] = setting.communication_rounds;
+        result["GPU"] = setting.GPU;
+        result["mode"] = setting.mode;
+        result["epochs"] = setting.epochs;
+        result["batch_size"] = setting.batch_size;
+        result["learning_rate"] = setting.learning_rate;
+        result["loss_function"] = setting.loss_function;
+        result["optimizer"] = setting.optimizer;
+        return res.status(200).json(result);
     } catch (err) {
         return res.status(500).json({
             error: 'Internal server error',
@@ -87,11 +122,7 @@ exports.updateSetting = async (req, res, next) => {
     try {
         let setting = await Settings.findById(id).exec();
         let updated = setting;
-        if (key === "library") {
-            updated = await Settings.updateOne(setting, { library: value });
-        } else if (key === "version") {
-            updated = await Settings.updateOne(setting, { version: value });
-        } else if (key === "model") {
+        if (key === "model") {
             updated = await Settings.updateOne(setting, { model: value });
         } else if (key === "fedAlgo") {
             updated = await Settings.updateOne(setting, { fedAlgo: value });
@@ -99,21 +130,13 @@ exports.updateSetting = async (req, res, next) => {
             updated = await Settings.updateOne(setting, { clients_number: value });
         } else if (key === "dataset") {
             updated = await Settings.updateOne(setting, { dataset: value });
-        } else if (key === "dataset_url") {
-            updated = await Settings.updateOne(setting, { dataset_url: value });
-        } else if (key === " dataset_format") {
-            updated = await Settings.updateOne(setting, { dataset_format: value });
-        } else if (key === "dataset_size") {
-            updated = await Settings.updateOne(setting, { dataset_size: value });
-        } else if (key === "datapoints_number") {
-            updated = await Settings.updateOne(setting, { datapoints_number: value });
         } else if (key === "GPU") {
             updated = await Settings.updateOne(setting, { GPU: value });
         } else if (key === "mode") {
             updated = await Settings.updateOne(setting, { mode: value });
         } else if (key === "epochs") {
             updated = await Settings.updateOne(setting, { epochs: value });
-        } else if (key === " batch_size") {
+        } else if (key === "batch_size") {
             updated = await Settings.updateOne(setting, { batch_size: value });
         } else if (key === "learning_rate") {
             updated = await Settings.updateOne(setting, { learning_rate: value });
@@ -121,12 +144,6 @@ exports.updateSetting = async (req, res, next) => {
             updated = await Settings.updateOne(setting, { loss_function: value });
         } else if (key === "optimizer") {
             updated = await Settings.updateOne(setting, { optimizer: value });
-        } else if (key === "environment") {
-            updated = await Settings.updateOne(setting, { environment: value });
-        } else if (key === "folder") {
-            updated = await Settings.updateOne(setting, { folder: value });
-        } else if (key === "script") {
-            updated = await Settings.updateOne(script, { script: value });
         } else if (key === "communication_rounds") {
             updated = await Settings.updateOne(communication_rounds, { communication_rounds: value });
         }
@@ -142,14 +159,16 @@ exports.updateSetting = async (req, res, next) => {
 // training function
 exports.trainSetting = async (req, res, next) => {
     try {
-        const toTrain = await Settings.findById(req.params.id).exec();
-        if (toTrain.library == "flower") {
-            const cmd_server = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\image_classifier_server.py"
-            const cmd_client = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\" + toTrain.script
+        const toTrainSetting = await Settings.findById(req.params.id).exec();
+        const toTrainModel = await Models.findById(toTrainSetting.model).exec();
+        const toTrainDataset = await Datasets.findById(toTrainSetting.dataset).exec();
 
+        if (toTrainModel.library_name == "flower") {
+            const cmd_server = "conda run -n " + toTrainModel.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrainModel.library_name + "\\image_classifier_server.py " + toTrainModel.model + " " + toTrainDataset.dataset_name + " " + toTrainSetting.batch_size + " " + toTrainSetting.epochs + " " + toTrainSetting.learning_rate + " " + toTrainSetting.communication_rounds + " " + toTrainSetting.loss_function + " " + toTrainSetting.optimizer + " " + toTrainSetting.GPU
+            const cmd_client = "conda run -n " + toTrainModel.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrainModel.library_name + "\\" + toTrainModel.script + " " + toTrainModel.model + " " + toTrainDataset.dataset_name + " " + toTrainSetting.batch_size + " " + toTrainSetting.epochs + " " + toTrainSetting.learning_rate + " " + toTrainSetting.communication_rounds + " " + toTrainSetting.loss_function + " " + toTrainSetting.optimizer + " " + toTrainSetting.GPU
             var execute_server = exec(cmd_server,
                 (error, stdout) => {
-                    metrics = sanitize(stdout)
+                    let metrics = sanitize(stdout)
                     res.status(200).json({
                         metrics
                     });
@@ -157,7 +176,7 @@ exports.trainSetting = async (req, res, next) => {
                         console.log(`exec error: ${error}`);
                     }
                 });
-            for (var i = 0; i < toTrain.clients_number; i++) {
+            for (var i = 0; i < toTrainSetting.clients_number; i++) {
                 var execute_client = exec(cmd_client,
                     (error, stdout) => {
                         if (error !== null) {
@@ -166,14 +185,13 @@ exports.trainSetting = async (req, res, next) => {
                     });
             }
         } else {
-            if (toTrain.library == "fedml") {
-                var cmd = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\image_classifier.py --cf " + toTrain.script
+            if (toTrainModel.library_name == "fedml") {
+                var cmd = "conda run -n " + toTrainModel.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrainModel.library_name + "\\image_classifier.py --cf " + process.env.PATH_TO_LIBRARIES + toTrainModel.library_name + "\\" + toTrainModel.script
             } else {
-                var cmd = "conda run -n " + toTrain.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrain.folder + "\\" + toTrain.script
+                var cmd = "conda run -n " + toTrainModel.environment + " python " + process.env.PATH_TO_LIBRARIES + toTrainModel.library_name + "\\" + toTrainModel.script + " " + toTrainModel.model + " " + toTrainDataset.dataset_name + " " + toTrainSetting.batch_size + " " + toTrainSetting.epochs + " " + toTrainSetting.learning_rate + " " + toTrainSetting.communication_rounds + " " + toTrainSetting.loss_function + " " + toTrainSetting.optimizer + " " + toTrainSetting.GPU
             }
             var execute = exec(cmd,
                 (error, stdout) => {
-                    console.log(stdout)
                     let metrics = sanitize(stdout)
                     res.status(200).json({
                         metrics
@@ -192,11 +210,9 @@ exports.trainSetting = async (req, res, next) => {
 }
 
 // sanitizing the logs 
-
 function sanitize(stdout) {
-    console.log(stdout)
     let metrics = stdout.toString().replace(/(\r\n|\n|\r| |{|})/gm, '').split(";").filter(m => m !== '')
-    let gpu = metrics[metrics.length - 1].replace('gpu:', '')
+    let gpu = metrics[metrics.length - 1].replace('gpu:', '') + " %"
     let cpu = metrics[metrics.length - 2].replace("cpu:", "") + " %"
     let memory = metrics[metrics.length - 3].replace("memory:", "").substring(0, 7) + " MB"
     let network = metrics[metrics.length - 4]

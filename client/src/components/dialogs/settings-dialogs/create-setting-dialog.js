@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react'
 import * as dotenv from 'dotenv' 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -13,29 +13,25 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useStore from "../../services/useStore";
+import useStore from "../../../services/useStore";
 
 
 
-export function CreateDialog() {
+export function CreateSettingDialog() {
 
     // environment config
     dotenv.config()
 
     // state od the create dialog and the different attributes of the setting as well as functions to control them 
-    const createDialogState = useStore((state) => state.createDialogState);
+    const models_menu = useStore((state) => state.models_menu);
+    const datasets_menu = useStore((state) => state.datasets_menu);
+
     const identifier = useStore((state) => state.identifier);
-    const library = useStore((state) => state.library);
-    const version = useStore((state) => state.version);
-    const model = useStore((state) => state.model);
+    const setting_model = useStore((state) => state.setting_model);
+    const dataset = useStore((state) => state.dataset);
     const fedAlgo = useStore((state) => state.fedAlgo);
     const clients_number = useStore((state) => state.clients_number);
     const communication_rounds = useStore((state) => state.communication_rounds);
-    const dataset = useStore((state) => state.dataset);
-    const dataset_url = useStore((state) => state.dataset_url);
-    const dataset_format = useStore((state) => state.dataset_format);
-    const dataset_size = useStore((state) => state.dataset_size);
-    const datapoints_number = useStore((state) => state.datapoints_number);
     const GPU = useStore((state) => state.GPU);
     const mode = useStore((state) => state.mode);
     const batch_size = useStore((state) => state.batch_size);
@@ -43,24 +39,17 @@ export function CreateDialog() {
     const epochs = useStore((state) => state.epochs);
     const optimizer = useStore((state) => state.optimizer);
     const loss_function = useStore((state) => state.loss_function);
-    const environment = useStore((state) => state.environment);
-    const folder = useStore((state) => state.folder);
-    const script = useStore((state) => state.script);
 
-    const closeCreateDialog = useStore((state) => state.closeCreateDialog);
+    const createSettingDialogState = useStore((state) => state.createSettingDialogState);
+    const closeCreateSettingDialog = useStore((state) => state.closeCreateSettingDialog);
+
     const addSetting = useStore((state) => state.addSetting);
     const setIdentifier = useStore((state) => state.setIdentifier);
-    const setLibrary = useStore((state) => state.setLibrary);
-    const setVersion = useStore((state) => state.setVersion);
-    const setModel = useStore((state) => state.setModel);
+    const setSettingModel = useStore((state) => state.setSettingModel);
+    const setDataset = useStore((state) => state.setDataset);
     const setFedAlgo = useStore((state) => state.setFedAlgo);
     const setClientNum = useStore((state) => state.setClientNum);
     const setCommRound = useStore((state) => state.setCommRound);
-    const setDataset = useStore((state) => state.setDataset);
-    const setDatasetURL = useStore((state) => state.setDatasetURL);
-    const setDatasetFormat = useStore((state) => state.setDatasetFormat);
-    const setDatasetSize = useStore((state) => state.setDatasetSize);
-    const setDatapointsNum = useStore((state) => state.setDatapointsNum);
     const setGPU = useStore((state) => state.setGPU);
     const setMode = useStore((state) => state.setMode);
     const setEpochs = useStore((state) => state.setEpochs);
@@ -68,22 +57,18 @@ export function CreateDialog() {
     const setLearningRate = useStore((state) => state.setLearningRate);
     const setLossFunction = useStore((state) => state.setLossFunction);
     const setOptimizer = useStore((state) => state.setOptimizer);
-    const setEnvironment = useStore((state) => state.setEnvironment);
-    const setFolder = useStore((state) => state.setFolder);
-    const setScript = useStore((state) => state.setScript);
+    const setModelsMenu = useStore((state) => state.setModelsMenu);
+    const setDatasetsMenu = useStore((state) => state.setDatasetsMenu);
 
     // functions for event change for the different input field
     const onInputChangeIdentifier = (e) => {
         setIdentifier(e.target.value)
     };
-    const onInputChangeLibrary = (e) => {
-        setLibrary(e.target.value)
-    };
-    const onInputChangeVersion = (e) => {
-        setVersion(e.target.value)
-    };
     const onInputChangeModel = (e) => {
-        setModel(e.target.value)
+        setSettingModel(e.target.value)
+    };
+    const onInputChangeDataset = (e) => {
+        setDataset(e.target.value)
     };
     const onInputChangeFedAlgo = (e) => {
         setFedAlgo(e.target.value)
@@ -93,21 +78,6 @@ export function CreateDialog() {
     };
     const onInputChangeCommRound = (e) => {
         setCommRound(e.target.value)
-    };
-    const onInputChangeDataset = (e) => {
-        setDataset(e.target.value)
-    };
-    const onInputChangeDatasetURL = (e) => {
-        setDatasetURL(e.target.value)
-    };
-    const onInputChangeDatasetFormat = (e) => {
-        setDatasetFormat(e.target.value)
-    };
-    const onInputChangeDatasetSize = (e) => {
-        setDatasetSize(e.target.value)
-    };
-    const onInputChangeDatapointsNum = (e) => {
-        setDatapointsNum(e.target.value)
     };
     const onInputChangeGPU = (e) => {
         setGPU(e.target.value)
@@ -130,43 +100,60 @@ export function CreateDialog() {
     const onInputChangeOptimizer = (e) => {
         setOptimizer(e.target.value)
     };
-    const onInputChangeEnvironment = (e) => {
-        setEnvironment(e.target.value)
-    };
-    const onInputChangeFolder = (e) => {
-        setFolder(e.target.value)
-    };
-    const onInputChangeScript = (e) => {
-        setScript(e.target.value)
-    };
 
     // when the user cancels the create dialog the state of the attributes of the setting is reset to initial state
     const onCancel = (e) => {
         setIdentifier("")
-        setLibrary("pysyft")
-        setVersion("0.2.9")
-        setModel("CNN")
+        setSettingModel("")
+        setDataset("")
         setFedAlgo("fedAvg")
         setClientNum(2)
         setCommRound(3)
-        setDataset("MNIST")
-        setDatasetURL("/mnist")
-        setDatasetFormat("img")
-        setDatasetSize(30)
-        setDatapointsNum(70000)
-        setGPU(false)
+        setGPU("False")
         setMode("simulation")
         setEpochs(10)
         setBatchSize(30)
         setLearningRate("1")
         setLossFunction("cross_entropy")
         setOptimizer("sdg")
-        setEnvironment("syft")
-        setFolder("pysyft")
-        setScript("image_classifier.py")
-        closeCreateDialog()
+        closeCreateSettingDialog()
     };
+    
+    // get models for dropdown menu
+    const getModels = async (e) => {
+        let axiosConfig = {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            }
+        };
 
+        axios.get(process.env.REACT_APP_API_URL + 'getModels', axiosConfig)
+        .then((response) => {
+            setModelsMenu(response.data.map((model) => <MenuItem key={model._id} value={model._id}>{model.model} with {model.library_name} </MenuItem>))
+        })
+        .catch((e) => {
+            toast.configure()
+            toast.error(e.message)
+        });
+    }
+
+    // get datasets for dropdown menu
+    const getDatasets = async (e) => {
+        let axiosConfig = {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            }
+        };
+        axios.get(process.env.REACT_APP_API_URL + 'getDatasets', axiosConfig)
+        .then((response) => {
+            setDatasetsMenu(response.data.map((dataset) => <MenuItem key={dataset._id} value={dataset._id}>{dataset.dataset_name}</MenuItem>))
+        })
+        .catch((e) => {
+            toast.configure()
+            toast.error(e.message)
+        });
+    }
+    
     // when the user presses submit all of their entries is grouped into a JSON object and sent to the server through a post request
     // then the state of the different attributes of the setting are reset
     const onSubmit = async (e) => {
@@ -177,27 +164,18 @@ export function CreateDialog() {
         };
         let data = {
             'identifier': identifier,
-            'library': library,
-            'version': version,
-            'model': model,
+            'model': setting_model,
+            'dataset': dataset,
             'fedAlgo': fedAlgo,
             'clients_number': parseInt(clients_number),
             'communication_rounds': parseInt(communication_rounds),
-            'dataset': dataset,
-            'dataset_url': "../../data" + dataset_url,
-            'dataset_format': dataset_format,
-            'dataset_size': parseInt(dataset_size),
-            'datapoints_number': parseInt(datapoints_number),
-            'GPU': Boolean(GPU),
+            'GPU': GPU,
             'mode': mode,
             'batch_size': parseInt(batch_size),
             'learning_rate': "0.0" + learning_rate,
             'epochs': parseInt(epochs),
             'optimizer': optimizer,
             'loss_function': loss_function,
-            'environment': environment,
-            'folder': folder,
-            'script': script
         };
         axios.post(process.env.REACT_APP_API_URL + 'createSetting', data, axiosConfig)
             .then((response) => {
@@ -210,32 +188,23 @@ export function CreateDialog() {
                 toast.error(e.message)
             });
         setIdentifier("")
-        setLibrary("pysyft")
-        setVersion("0.2.9")
-        setModel("CNN")
+        setSettingModel("")
+        setDataset("")
         setFedAlgo("fedAvg")
         setClientNum(2)
-        setCommRound(2)
-        setDataset("MNIST")
-        setDatasetURL("/mnist")
-        setDatasetFormat("img")
-        setDatasetSize(30)
-        setDatapointsNum(70000)
-        setGPU(false)
+        setCommRound(3)
+        setGPU("False")
         setMode("simulation")
         setEpochs(10)
         setBatchSize(30)
         setLearningRate("1")
         setLossFunction("cross_entropy")
         setOptimizer("sdg")
-        setEnvironment("syft")
-        setFolder("pysyft")
-        setScript("image_classifier.py")
-        closeCreateDialog();
+        closeCreateSettingDialog();
     }
     
     // JSX template
-    return <Dialog open={createDialogState} onClose={closeCreateDialog}>
+    return <Dialog open={createSettingDialogState} onClose={closeCreateSettingDialog}>
         <DialogTitle>Add an experiment setting</DialogTitle>
         <DialogContent>
             <DialogContentText className="dialog_text">
@@ -255,53 +224,33 @@ export function CreateDialog() {
                     fullWidth
                     required
                 />
-                <InputLabel id="demo-simple-select-label">Library</InputLabel>
-                <Select
-                    style={{ marginBottom: '10px' }}
-                    id="library"
-                    defaultValue="pysyft"
-                    label="library"
-                    onChange={onInputChangeLibrary}
-                    fullWidth
-                    required
-                >
-                    <MenuItem value="pysyft">pysyft</MenuItem>
-                    <MenuItem value="ibm">ibm</MenuItem>
-                    <MenuItem value="fedml">fedml</MenuItem>
-                    <MenuItem value="flower">flower</MenuItem>
-                    <MenuItem value="pytorch">pytorch</MenuItem>
-                </Select>
-                <TextField
-                    style={{ marginBottom: '10px' }}
-                    autoFocus
-                    onChange={onInputChangeVersion}
-                    id="version"
-                    label="version"
-                    className="version"
-                    defaultValue={"0.2.9"}
-                    error={/^(\d+\.)?(\d+\.)?(\*|\d+)$/.test(version) ? false : true}
-                    helperText={/^(\d+\.)?(\d+\.)?(\*|\d+)$/.test(version) ? false : "Please enter a valid version number 0.0.0"}
-                    type="text"
-                    fullWidth
-                    required
-                />
                 <InputLabel id="demo-simple-select-label">Model</InputLabel>
                 <Select
                     style={{ marginBottom: '10px' }}
                     id="model"
-                    defaultValue="CNN"
                     label="ML model"
+                    error={setting_model.length > 0 ? false : true}
+                    onOpen={getModels}
                     onChange={onInputChangeModel}
+                    value={setting_model || ''}
                     fullWidth
                     required
                 >
-                    <MenuItem value="CNN">CNN</MenuItem>
-                    <MenuItem value="RNN">RNN</MenuItem>
-                    <MenuItem value="LSTM">LSTM</MenuItem>
-                    <MenuItem value="Kmean">Kmean</MenuItem>
-                    <MenuItem value="Tree">Tree</MenuItem>
-                    <MenuItem value="LogReg">LogReg</MenuItem>
-                    <MenuItem value="LinReg">LinReg</MenuItem>
+                {models_menu}
+                </Select>
+                <InputLabel id="demo-simple-select-label">Dataset</InputLabel>
+                <Select
+                    style={{ marginBottom: '10px' }}
+                    id="dataset"
+                    label="dataset"
+                    error={dataset.length > 0 ? false : true}
+                    onOpen={getDatasets}
+                    onChange={onInputChangeDataset}
+                    value={dataset || ''}
+                    fullWidth
+                    required
+                >
+                {datasets_menu}
                 </Select>
                 <InputLabel id="demo-simple-select-label">Federated strategy</InputLabel>
                 <Select
@@ -350,95 +299,18 @@ export function CreateDialog() {
                     fullWidth
                     required
                 />
-                <InputLabel id="demo-simple-select-label">Dataset</InputLabel>
-                <Select
-                    style={{ marginBottom: '10px' }}
-                    id="dataset"
-                    defaultValue="MNIST"
-                    label="dataset"
-                    onChange={onInputChangeDataset}
-                    fullWidth
-                    required
-                >
-                    <MenuItem value="MNIST">MNIST</MenuItem>
-                    <MenuItem value="CIPHAR-10">CIPHAR-10</MenuItem>
-                </Select>
-                <TextField
-                    style={{ marginBottom: '10px' }}
-                    autoFocus
-                    onChange={onInputChangeDatasetURL}
-                    id="dataset_url"
-                    label="dataset url"
-                    className="dataset_url"
-                    defaultValue="/mnist"
-                    error={/^\/([^?]+)/.test(dataset_url) ? false : true}
-                    helperText={/^\/([^?]+)/.test(dataset_url) ? false : "Please enter a valid dataset url /path/to/data"}
-                    type="text"
-                    fullWidth
-                    required
-                />
-                <InputLabel id="demo-simple-select-label">Data format</InputLabel>
-                <Select
-                    style={{ marginBottom: '10px' }}
-                    id="dataformat"
-                    defaultValue="img"
-                    label="dataformat"
-                    onChange={onInputChangeDatasetFormat}
-                    fullWidth
-                    required
-                >
-                    <MenuItem value="img">img</MenuItem>
-                    <MenuItem value="text">text</MenuItem>
-                    <MenuItem value="audio">audio</MenuItem>
-                    <MenuItem value="time-series">time-series</MenuItem>
-                    <MenuItem value="table">table</MenuItem>
-                </Select>
-                <TextField
-                    style={{ marginBottom: '10px' }}
-                    autoFocus
-                    onChange={onInputChangeDatasetSize}
-                    id="dataset_size"
-                    label="dataset size in MB"
-                    className="dataset_size"
-                    defaultValue={30}
-                    type="number"
-                    InputProps={{
-                        inputProps: {
-                            max: 10000, min: 1
-                        }
-                    }}
-                    fullWidth
-                    required
-                />
-                <TextField
-                    style={{ marginBottom: '10px' }}
-                    autoFocus
-                    onChange={onInputChangeDatapointsNum}
-                    id="datapoints_number"
-                    label="datapoints number"
-                    className="datapoints_number"
-                    defaultValue={70000}
-                    type="number"
-                    InputProps={{
-                        inputProps: {
-                            max: 1000000, min: 1
-                        }
-                    }}
-                    fullWidth
-                    required
-                />
                 <InputLabel id="demo-simple-select-label">GPU</InputLabel>
                 <Select
                     style={{ marginBottom: '10px' }}
                     id="GPU"
-                    defaultValue="false"
+                    defaultValue="False"
                     label="GPU"
                     onChange={onInputChangeGPU}
                     fullWidth
                     required
                 >
-                    <MenuItem value="false">false</MenuItem>
-                    <MenuItem value="true">true</MenuItem>
+                    <MenuItem value="False">False</MenuItem>
+                    <MenuItem value="True">True</MenuItem>
                 </Select>
                 <InputLabel id="demo-simple-select-label">Mode</InputLabel>
                 <Select
@@ -531,55 +403,6 @@ export function CreateDialog() {
                 >
                     <MenuItem value="cross_entropy">cross_entropy</MenuItem>
                 </Select>
-                <InputLabel id="demo-simple-select-label">Environment</InputLabel>
-                <Select
-                    style={{ marginBottom: '10px' }}
-                    id="environment"
-                    defaultValue="syft"
-                    label="environment"
-                    onChange={onInputChangeEnvironment}
-                    fullWidth
-                    required
-                >
-                    <MenuItem value="syft">syft</MenuItem>
-                    <MenuItem value="ibm">ibm</MenuItem>
-                    <MenuItem value="fedml">fedml</MenuItem>
-                    <MenuItem value="flower">flower</MenuItem>
-                    <MenuItem value="pytorch">pytorch</MenuItem>
-                </Select>
-                <InputLabel id="demo-simple-select-label">Folder</InputLabel>
-                <Select
-                    style={{ marginBottom: '10px' }}
-                    id="folder"
-                    defaultValue="pysyft"
-                    label="folder"
-                    onChange={onInputChangeFolder}
-                    fullWidth
-                    required
-                >
-                    <MenuItem value="pysyft">pysyft</MenuItem>
-                    <MenuItem value="ibm">ibm</MenuItem>
-                    <MenuItem value="fedml">fedml</MenuItem>
-                    <MenuItem value="flower">flower</MenuItem>
-                    <MenuItem value="pytorch">pytorch</MenuItem>
-                </Select>
-                <InputLabel id="demo-simple-select-label">Script</InputLabel>
-                <Select
-                    style={{ marginBottom: '10px' }}
-                    id="script"
-                    defaultValue="image_classifier.py"
-                    label="script"
-                    onChange={onInputChangeScript}
-                    fullWidth
-                    required
-                >
-                    <MenuItem value="image_classifier.py">image_classifier.py</MenuItem>
-                    <MenuItem value="image_classifier_cnn.py">image_classifier_cnn.py</MenuItem>
-                    <MenuItem value="mnist_image_classifier_cnn_client.py">mnist_image_classifier_cnn_client.py</MenuItem>
-                    <MenuItem value="cifar_cnn_config.yaml">cifar_cnn_config.yaml</MenuItem>
-                    <MenuItem value="mnist_cnn_config.yaml">mnist_cnn_config.yaml</MenuItem>
-                    <MenuItem value="mnist_logreg_config.yaml">mnist_logreg_config.yaml</MenuItem>
-                </Select>
                 <DialogActions>
                     <Button onClick={onCancel}>Cancel</Button>
                     <Button onClick={onSubmit}>Add</Button>
@@ -590,4 +413,4 @@ export function CreateDialog() {
     </Dialog>
 };
 
-export default CreateDialog;
+export default CreateSettingDialog;

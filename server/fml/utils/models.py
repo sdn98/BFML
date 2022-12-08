@@ -5,7 +5,6 @@ import torch.nn.functional as F
 # Declare models
 
 # CNN for MNIST
-
 class MnistCnn(nn.Module):
   def __init__(self):
     super(MnistCnn,self).__init__()
@@ -26,7 +25,6 @@ class MnistCnn(nn.Module):
     return x
 
 # CNN for Cifar10
-
 class CifarCnn(nn.Module):
     def __init__(self):
         super(CifarCnn, self).__init__()
@@ -47,7 +45,6 @@ class CifarCnn(nn.Module):
         return F.log_softmax(x, dim=1)
 
 # Logistic Regression for Mnist
-
 class MnistLogisticRegression(torch.nn.Module):
     def __init__(self):
         super(MnistLogisticRegression, self).__init__()

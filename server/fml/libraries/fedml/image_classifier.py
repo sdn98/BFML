@@ -2,10 +2,9 @@ import fedml
 from fedml import FedMLRunner
 import sys
 import os, psutil
-sys.path.insert(0, 'C:\\Users\\ahmed.saidani\\Desktop\\FMLB\\server\\fml\\utils')
-from config import Config
 import time
 from sklearn.metrics import precision_score, recall_score, f1_score
+import GPUtil
 
 if __name__ == "__main__":
       
@@ -13,7 +12,6 @@ if __name__ == "__main__":
     start_time = time.time()
     old_network = psutil.net_io_counters().bytes_recv + psutil.net_io_counters().bytes_sent
     old_cpu = psutil.cpu_percent(interval=None)
-    config = Config()
 
     # init FedML framework
     args = fedml.init()
@@ -38,10 +36,9 @@ if __name__ == "__main__":
     new_network = psutil.net_io_counters().bytes_recv + psutil.net_io_counters().bytes_sent
     network = str(new_network - old_network)
     memory = str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2)
-    if config.gpu == True:
-        gpu = "1"
-    else:
-        gpu = "0"
+    GPUs = GPUtil.getGPUs()
+    gpu = str(GPUs[0].load * 100)
+
     data = '{ time: ' + execution_time + '; \n network: ' + network + '; \n memory: ' + memory + '; \n cpu: ' + cpu + '; \n gpu: ' + gpu + '; \n }'
     print(data)
     sys.stdout.flush()

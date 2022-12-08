@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import * as dotenv from 'dotenv' 
+import * as dotenv from 'dotenv'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import './train.css';
@@ -21,7 +21,7 @@ export function Train(props) {
     useEffect(() => {
         getSettingInfo();
     }, []);
-    
+
     // state declaration
     const setting = useStore((state) => state.setting)
     const metrics = useStore((state) => state.metrics)
@@ -35,10 +35,11 @@ export function Train(props) {
                 "Content-Type": "application/json",
             },
         };
-    
+
         await axios
             .get(process.env.REACT_APP_API_URL + 'getSetting/' + window.location.pathname.substring(7), axiosConfig)
             .then((res) => {
+                console.log(res.data)
                 setSetting(res.data)
             })
             .catch((e) => {
@@ -48,7 +49,7 @@ export function Train(props) {
 
         await axios.get(process.env.REACT_APP_API_URL + 'trainSetting/' + window.location.pathname.substring(7), axiosConfig)
             .then((res) => {
-                setMetrics(res.data.metrics)  
+                setMetrics(res.data.metrics)
             })
             .catch((e) => {
                 toast.configure()
@@ -68,7 +69,7 @@ export function Train(props) {
                             <TableCell className="train-table-head-cell">Library</TableCell>
                             <TableCell className="train-table-head-cell">Version</TableCell>
                             <TableCell className="train-table-head-cell">Environment</TableCell>
-                            <TableCell className="train-table-head-cell">Folder</TableCell>
+                            <TableCell className="train-table-head-cell">Model</TableCell>
                             <TableCell className="train-table-head-cell">Script</TableCell>
                         </TableRow>
                     </TableHead>
@@ -77,7 +78,7 @@ export function Train(props) {
                             <TableCell className="train-table-cell">{setting.library}</TableCell>
                             <TableCell className="train-table-cell">{setting.version}</TableCell>
                             <TableCell className="train-table-cell">{setting.environment}</TableCell>
-                            <TableCell className="train-table-cell">{setting.folder}</TableCell>
+                            <TableCell className="train-table-cell">{setting.model}</TableCell>
                             <TableCell className="train-table-cell">{setting.script}</TableCell>
                         </TableRow>
                     </TableBody>
@@ -88,7 +89,6 @@ export function Train(props) {
                 <Table className="train-table" sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                     <TableHead className="train-table-head">
                         <TableRow>
-                            <TableCell className="train-table-head-cell">Model</TableCell>
                             <TableCell className="train-table-head-cell">Federated Strategy</TableCell>
                             <TableCell className="train-table-head-cell">Communication Rounds</TableCell>
                             <TableCell className="train-table-head-cell">GPU</TableCell>
@@ -102,7 +102,6 @@ export function Train(props) {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell className="train-table-cell">{setting.model}</TableCell>
                             <TableCell className="train-table-cell"> {setting.fedAlgo}</TableCell>
                             <TableCell className="train-table-cell"> {setting.communication_rounds}</TableCell>
                             <TableCell className="train-table-cell">{String(setting.GPU)}</TableCell>

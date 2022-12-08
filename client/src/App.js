@@ -5,6 +5,7 @@ import Home from './pages/home/home'
 import Train from './pages/train/train'
 import { Navigate } from 'react-router-dom'
 import './App.css'
+import Utilities from './pages/utils/utilities'
 
 // JSX template for the different routes
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/train/:id' element={<Train />} />
+        <Route path='/utilities' element={<Utilities />} />
         <Route path='/' element={<Navigate to='/home' />} />
       </Routes>
     </Router>

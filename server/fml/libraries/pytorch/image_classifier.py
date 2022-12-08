@@ -11,17 +11,18 @@ import os, psutil
 import time
 from torch.autograd import Variable
 from sklearn.metrics import precision_score, recall_score, f1_score
+import GPUtil
 
 # declare the config, gpu, model, dataset, optimizer, and criterion
-config = Config()
+config = Config(sys.argv)
 use_cuda = config.gpu and torch.cuda.is_available()
+print(torch.cuda.is_available())
 device = torch.device("cuda" if use_cuda else "cpu")
-
 # supports both cifar (only cnn) and mnist dataset
 if config.dataset =="CIFAR":
-    dataloader = CifarDataLoader()
+    dataloader = CifarDataLoader(sys.argv)
 else:
-    dataloader = MnistDataLoader()
+    dataloader = MnistDataLoader(sys.argv)
 
 # supports both logistic regression and cnn
 if config.dataset =="CIFAR":
@@ -99,7 +100,8 @@ def benchmark():
   network = str(new_network - old_network)
   memory = str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2)
   if config.gpu == True:
-    gpu = "1"
+    GPUs = GPUtil.getGPUs()
+    gpu = str(GPUs[0].load * 100)
   else:
     gpu = "0"
   # log metrics

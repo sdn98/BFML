@@ -14,11 +14,12 @@ from tqdm import tqdm
 from sklearn.metrics import precision_score, recall_score, f1_score
 from torch.autograd import Variable
 import os, psutil
+import GPUtil
 
 # declare the config, gpu, model, dataset, optimizer, and criterion
 warnings.filterwarnings("ignore", category=UserWarning)
-config = Config()
-dataloader = MnistDataLoader()
+config = Config(sys.argv)
+dataloader = MnistDataLoader(sys.argv)
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 model = MnistCnn().to(device)
 criterion = nn.CrossEntropyLoss()
@@ -84,6 +85,6 @@ class FlowerClient(fl.client.NumPyClient):
 
 # start flower client
 fl.client.start_numpy_client(
-    server_address="127.0.0.1:8080",
+    server_address="localhost:5040",
     client=FlowerClient(),
 )

@@ -8,14 +8,6 @@ const settingSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  library: {
-    type: String,
-    required: true,
-  },
-  version: {
-    type: String,
-    required: true,
-  },
   model: {
     type: String,
     required: true,
@@ -36,24 +28,8 @@ const settingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  dataset_url: {
-    type: String,
-    required: true,
-  },
-  dataset_format: { 
-    type: String,
-    required: true,
- },
- dataset_size: { 
-  type: Number,
-  required: true,
-},
-datapoints_number: { 
-  type: Number,
-  required: true,
-},
 GPU: { 
-  type: Boolean,
+  type: String,
   required: true,
 },
  mode: { 
@@ -79,19 +55,7 @@ loss_function: {
 optimizer: { 
   type: String,
   required: true,
-},
-environment: {
-  type: String,
-  required: true,
-},
-folder: {
-  type: String,
-  required: true,
-},
-script: {
-  type: String,
-  required: true,
-},
+}
 });
 
 const setting = mongoose.model("setting", settingSchema);

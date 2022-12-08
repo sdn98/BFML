@@ -22,7 +22,7 @@ app.get('/', (req, res, next) => {
 
     // Connecting Routes
 
-    app.use("/api/settings", require("./routes/settings"));
+    app.use("/api", require("./routes/routes"));
 
     const PORT = process.env.PORT;
 

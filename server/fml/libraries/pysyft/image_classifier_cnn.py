@@ -13,9 +13,10 @@ import syft as sy  # <-- NEW: import the Pysyft library
 import os, psutil
 import time
 from sklearn.metrics import precision_score, recall_score, f1_score
+import GPUtil
 
 # declare the config, model, dataset, optimizer, and criterion
-config = Config()
+config = Config(sys.argv)
 
 # supports both mnist and cifar datasets
 if config.dataset =="CIFAR":
@@ -24,9 +25,9 @@ else:
     model = MnistCnn()
 
 if config.dataset =="CIFAR":
-    dataloader = CifarDataLoader()
+    dataloader = CifarDataLoader(sys.argv)
 else:
-    dataloader = MnistDataLoader()
+    dataloader = MnistDataLoader(sys.argv)
 
 optimizer = optim.SGD(model.parameters(), lr=config.lr)
 criterion = nn.CrossEntropyLoss()
@@ -102,7 +103,8 @@ def benchmark():
   network = str(new_network - old_network)
   memory = str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2)
   if config.gpu == True:
-    gpu = "1"
+    GPUs = GPUtil.getGPUs()
+    gpu = str(GPUs[0].load * 100)
   else:
     gpu = "0"
   # log metrics

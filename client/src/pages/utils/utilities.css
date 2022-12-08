@@ -1,0 +1,11 @@
+.utilities-title {
+    color: rgb(0, 185, 242);
+    margin-top: 50px;
+    font-family: sans-serif;
+}
+
+.utilities-cards-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

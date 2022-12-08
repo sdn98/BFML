@@ -1,0 +1,21 @@
+.card-image{
+    height: auto;
+    max-width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+.add-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.utility-card{
+    margin: 20px;
+    position: relative !important;
+}
+.delete-button {
+    position: absolute !important;
+    bottom: 10px !important;
+}
