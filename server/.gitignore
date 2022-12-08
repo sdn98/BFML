@@ -15,7 +15,9 @@
 .DS_Store
 .env
 fml/data
-fml/libraries/ibm/federated-learning-lib-main
+fml/libraries/ibm/federated-learning-lib-main/examples/data/mnist/random/data_party0.npz
+fml/libraries/ibm/federated-learning-lib-main/examples/data/mnist/random/data_party1.npz
+fml/libraries/ibm/federated-learning-lib-main/examples/datasets/mnist.npz
 .env/
 /.env
 ./.env

@@ -1,0 +1,1049 @@
+2022-11-29 14:56:49,068 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-11-29 14:56:49,074 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 14:56:49,142 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 15:00:49,328 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-11-29 15:00:49,333 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 15:00:49,342 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 15:04:14,016 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-11-29 15:04:14,021 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 15:04:14,033 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 15:22:05,443 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-11-29 15:22:05,454 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 15:22:05,467 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 20:10:55,011 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-11-29 20:10:55,020 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 20:10:55,311 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 20:15:10,298 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-11-29 20:15:10,304 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-29 20:15:10,322 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 208, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-30 13:30:57,375 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-11-30 13:30:57,375 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 216, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-30 13:30:57,475 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 216, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-11-30 13:38:36,158 | 1.1.0 | ERROR | ibmfl.util.config                             | invalid syntax (pytorch_fl_model.py, line 194)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    eval = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+2022-11-30 13:38:36,158 | 1.1.0 | ERROR | ibmfl.util.config                             | Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    eval = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 247, in get_model_from_config
+    model_config['cls_ref'] = get_class_by_name(
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 471, in get_class_by_name
+    raise InvalidConfigurationException(
+ibmfl.exceptions.InvalidConfigurationException: Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+2022-11-30 13:38:39,524 | 1.1.0 | ERROR | ibmfl.util.config                             | invalid syntax (pytorch_fl_model.py, line 194)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    eval = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+2022-11-30 13:38:39,524 | 1.1.0 | ERROR | ibmfl.util.config                             | Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    eval = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 247, in get_model_from_config
+    model_config['cls_ref'] = get_class_by_name(
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 471, in get_class_by_name
+    raise InvalidConfigurationException(
+ibmfl.exceptions.InvalidConfigurationException: Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+2022-11-30 13:39:34,726 | 1.1.0 | ERROR | ibmfl.util.config                             | invalid syntax (pytorch_fl_model.py, line 194)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    M = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+2022-11-30 13:39:34,736 | 1.1.0 | ERROR | ibmfl.util.config                             | Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    M = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 247, in get_model_from_config
+    model_config['cls_ref'] = get_class_by_name(
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 471, in get_class_by_name
+    raise InvalidConfigurationException(
+ibmfl.exceptions.InvalidConfigurationException: Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+2022-11-30 13:39:39,129 | 1.1.0 | ERROR | ibmfl.util.config                             | invalid syntax (pytorch_fl_model.py, line 194)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    M = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+2022-11-30 13:39:39,139 | 1.1.0 | ERROR | ibmfl.util.config                             | Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    M = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 247, in get_model_from_config
+    model_config['cls_ref'] = get_class_by_name(
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 471, in get_class_by_name
+    raise InvalidConfigurationException(
+ibmfl.exceptions.InvalidConfigurationException: Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+2022-11-30 13:40:18,099 | 1.1.0 | ERROR | ibmfl.util.config                             | invalid syntax (pytorch_fl_model.py, line 194)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    myMetrics = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+2022-11-30 13:40:18,108 | 1.1.0 | ERROR | ibmfl.util.config                             | Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    myMetrics = self.evaluate(dataset, eval_metrics=metrics_list)[
+    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 247, in get_model_from_config
+    model_config['cls_ref'] = get_class_by_name(
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 471, in get_class_by_name
+    raise InvalidConfigurationException(
+ibmfl.exceptions.InvalidConfigurationException: Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+2022-11-30 13:40:40,822 | 1.1.0 | ERROR | ibmfl.util.config                             | invalid syntax (pytorch_fl_model.py, line 194)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    myMetrics = self.evaluate(dataset, eval_metrics=metrics_list)['accuracy','precision','recall','F1','loss']
+    ^
+SyntaxError: invalid syntax
+2022-11-30 13:40:40,822 | 1.1.0 | ERROR | ibmfl.util.config                             | Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 468, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 500, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 983, in get_code
+  File "<frozen importlib._bootstrap_external>", line 913, in source_to_code
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 194
+    myMetrics = self.evaluate(dataset, eval_metrics=metrics_list)['accuracy','precision','recall','F1','loss']
+    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 247, in get_model_from_config
+    model_config['cls_ref'] = get_class_by_name(
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\util\config.py", line 471, in get_class_by_name
+    raise InvalidConfigurationException(
+ibmfl.exceptions.InvalidConfigurationException: Error occurred while loading class PytorchFLModelfrom path ibmfl.model.pytorch_fl_model
+2022-12-03 18:15:25,816 | 1.1.0 | ERROR | ibmfl.aggregator.protohandler.proto_handler   | Party did not reply in time [Registered=2] [Quorum=2]
+2022-12-03 18:15:27,114 | 1.1.0 | ERROR | __main__                                      | Exception occurred while training.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 213, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-12-03 18:15:27,181 | 1.1.0 | ERROR | __main__                                      | Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 213, in start_training
+    self.fusion.start_global_training()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\iter_avg_fusion_handler.py", line 111, in start_global_training
+    lst_replies = self.query_all_parties(payload)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 231, in query_all_parties
+    lst_model_updates = self.query_parties(payload, lst_parties)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 255, in query_parties
+    lst_response = self.ph.query_parties(payload,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 389, in query_parties
+    self.periodically_verify_quorum(parties_to_query,
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 821, in periodically_verify_quorum
+    raise QuorumException(
+ibmfl.exceptions.QuorumException: Max-timeout: quorum not reached. Party did not reply in time. Registered=2. Quorum=2.
+2022-12-03 18:51:39,226 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 18:51:39,235 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 18:51:39,237 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | module 'sklearn.metrics' has no attribute 'loss'
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 292, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 312, in evaluate_model
+    eval_metrics = [metrics.accuracy_score, metrics.precision_score, metrics.recall_score, metrics.f1_score, metrics.loss]
+AttributeError: module 'sklearn.metrics' has no attribute 'loss'
+2022-12-03 18:51:39,238 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | module 'sklearn.metrics' has no attribute 'loss'
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 292, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 312, in evaluate_model
+    eval_metrics = [metrics.accuracy_score, metrics.precision_score, metrics.recall_score, metrics.f1_score, metrics.loss]
+AttributeError: module 'sklearn.metrics' has no attribute 'loss'
+2022-12-03 18:54:19,728 | 1.1.0 | ERROR | ibmfl.model.pytorch_fl_model                  | Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 329, in evaluate_model
+    metric_dict[metric] = fn(y, y_pred_argmax, **kwargs)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1365, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+2022-12-03 18:54:19,758 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 18:54:19,760 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | arguments not in the correct format for metric
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 329, in evaluate_model
+    metric_dict[metric] = fn(y, y_pred_argmax, **kwargs)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1365, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 292, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 339, in evaluate_model
+    raise ValueError("arguments not in the correct format for metric")
+ValueError: arguments not in the correct format for metric
+2022-12-03 18:54:19,722 | 1.1.0 | ERROR | ibmfl.model.pytorch_fl_model                  | Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 329, in evaluate_model
+    metric_dict[metric] = fn(y, y_pred_argmax, **kwargs)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1365, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+2022-12-03 18:54:19,822 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 18:54:19,824 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | arguments not in the correct format for metric
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 329, in evaluate_model
+    metric_dict[metric] = fn(y, y_pred_argmax, **kwargs)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1365, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 292, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 339, in evaluate_model
+    raise ValueError("arguments not in the correct format for metric")
+ValueError: arguments not in the correct format for metric
+2022-12-03 19:36:32,689 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 19:36:32,691 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 19:36:32,693 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'make_scorer' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 292, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 314, in evaluate_model
+    print(str(make_scorer(metrics.accuracy_score)))
+NameError: name 'make_scorer' is not defined
+2022-12-03 19:36:32,698 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'make_scorer' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 292, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 314, in evaluate_model
+    print(str(make_scorer(metrics.accuracy_score)))
+NameError: name 'make_scorer' is not defined
+2022-12-03 20:07:28,317 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:07:28,323 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | accuracy_score() missing 2 required positional arguments: 'y_true' and 'y_pred'
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 315, in evaluate_model
+    a=  metrics.accuracy_score()
+TypeError: accuracy_score() missing 2 required positional arguments: 'y_true' and 'y_pred'
+2022-12-03 20:07:28,324 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | accuracy_score() missing 2 required positional arguments: 'y_true' and 'y_pred'
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 315, in evaluate_model
+    a=  metrics.accuracy_score()
+TypeError: accuracy_score() missing 2 required positional arguments: 'y_true' and 'y_pred'
+2022-12-03 20:27:49,311 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:27:49,313 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 322, in evaluate_model
+    precision = 100 * metrics.precision_score(y, y_pred_argmax)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1365, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+2022-12-03 20:27:49,318 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:27:49,320 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 322, in evaluate_model
+    precision = 100 * metrics.precision_score(y, y_pred_argmax)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1365, in _check_set_wise_labels
+    raise ValueError(
+ValueError: Target is multiclass but average='binary'. Please choose another average setting, one of [None, 'micro', 'macro', 'weighted'].
+2022-12-03 20:30:42,063 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:30:42,068 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+"C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 325, in evaluate_model
+    data = '{ library: IBM; \n accuracy: ' + accuracy + '; \n loss: ' + '; \n recall: ' + recall + '; \n precision: ' + precision + '; \n f1: ' + fone + "; \n }"
+TypeError: can only concatenate str (not "numpy.float64") to str
+2022-12-03 20:30:42,070 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | can only concatenate str (not "numpy.float64") to str
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 325, in evaluate_model
+    data = '{ library: IBM; \n accuracy: ' + accuracy + '; \n loss: ' + '; \n recall: ' + recall + '; \n precision: ' + precision + '; \n f1: ' + fone + "; \n }"
+TypeError: can only concatenate str (not "numpy.float64") to str
+2022-12-03 20:40:20,434 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:40:20,436 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'precision_score' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 322, in evaluate_model
+    precision = str(100 * sum(precision_score(y, y_pred, average=None))/len(precision_score(y, y_pred, average=None)))
+NameError: name 'precision_score' is not defined
+2022-12-03 20:40:20,441 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:40:20,443 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'precision_score' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 322, in evaluate_model
+    precision = str(100 * sum(precision_score(y, y_pred, average=None))/len(precision_score(y, y_pred, average=None)))
+NameError: name 'precision_score' is not defined
+2022-12-03 20:44:16,208 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:44:16,210 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'precision_score' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 322, in evaluate_model
+    precision = precision_score(y, y_pred, average=None)
+NameError: name 'precision_score' is not defined
+2022-12-03 20:44:16,217 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:44:16,219 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'precision_score' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 322, in evaluate_model
+    precision = precision_score(y, y_pred, average=None)
+NameError: name 'precision_score' is not defined
+2022-12-03 20:47:29,748 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-03 20:47:29,750 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Classification metrics can't handle a mix of multiclass and continuous-multioutput targets
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 322, in evaluate_model
+    precision = metrics.precision_score(y, y_pred, average=None)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1348, in _check_set_wise_labels
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 93, in _check_targets
+    raise ValueError(
+ValueError: Classification metrics can't handle a mix of multiclass and continuous-multioutput targets
+2022-12-04 11:32:00,061 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 11:32:00,063 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Classification metrics can't handle a mix of multiclass and continuous-multioutput targets
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 324, in evaluate_model
+    precision = str(100 * sum(metrics.precision_score(y, y_pred, average=None)))
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1348, in _check_set_wise_labels
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 93, in _check_targets
+    raise ValueError(
+ValueError: Classification metrics can't handle a mix of multiclass and continuous-multioutput targets
+2022-12-04 11:32:00,069 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 11:32:00,071 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Classification metrics can't handle a mix of multiclass and continuous-multioutput targets
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 324, in evaluate_model
+    precision = str(100 * sum(metrics.precision_score(y, y_pred, average=None)))
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1757, in precision_score
+    p, _, _, _ = precision_recall_fscore_support(
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1544, in precision_recall_fscore_support
+    labels = _check_set_wise_labels(y_true, y_pred, average, labels, pos_label)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 1348, in _check_set_wise_labels
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\sklearn\metrics\_classification.py", line 93, in _check_targets
+    raise ValueError(
+ValueError: Classification metrics can't handle a mix of multiclass and continuous-multioutput targets
+2022-12-04 11:39:24,942 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 11:39:24,945 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | can only concatenate str (not "int") to str
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 324, in evaluate_model
+    print("lenghtttttttttttttttttttttt: " + length)
+TypeError: can only concatenate str (not "int") to str
+2022-12-04 11:39:25,006 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 11:39:25,008 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | can only concatenate str (not "int") to str
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 324, in evaluate_model
+    print("lenghtttttttttttttttttttttt: " + length)
+TypeError: can only concatenate str (not "int") to str
+2022-12-04 11:51:18,852 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 11:51:18,854 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'psutil' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 321, in evaluate_model
+    memory = str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2)
+NameError: name 'psutil' is not defined
+2022-12-04 11:51:18,859 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 11:51:18,861 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'psutil' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 293, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 321, in evaluate_model
+    memory = str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2)
+NameError: name 'psutil' is not defined
+2022-12-04 12:06:46,953 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:06:46,957 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'dataset' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    total_loss = self.evaluate(dataset, eval_metrics=[PytorchFLModel.loss])['loss']
+NameError: name 'dataset' is not defined
+2022-12-04 12:06:46,963 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:06:46,966 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'dataset' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    total_loss = self.evaluate(dataset, eval_metrics=[PytorchFLModel.loss])['loss']
+NameError: name 'dataset' is not defined
+2022-12-04 12:13:07,093 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:13:07,098 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | 'Tensor' object has no attribute 'evaluate'
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = PytorchFLModel.get_loss(torch.from_numpy(y_pred_argmax), torch.from_numpy(y)).numpy()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 707, in get_loss
+    orig_loss_value = self.evaluate(dataset, eval_metrics=metrics_list)[
+AttributeError: 'Tensor' object has no attribute 'evaluate'
+2022-12-04 12:13:07,103 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:13:07,107 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | 'Tensor' object has no attribute 'evaluate'
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = PytorchFLModel.get_loss(torch.from_numpy(y_pred_argmax), torch.from_numpy(y)).numpy()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 707, in get_loss
+    orig_loss_value = self.evaluate(dataset, eval_metrics=metrics_list)[
+AttributeError: 'Tensor' object has no attribute 'evaluate'
+2022-12-04 12:17:34,930 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:17:34,938 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:17:34,934 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expected 2 or more dimensions (got 1)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = self.model.get_loss(torch.from_numpy(y_pred_argmax), torch.from_numpy(y)).numpy()
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\skorch\net.py", line 1571, in get_loss
+    return self.criterion_(y_pred, y_true)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\nn\modules\loss.py", line 216, in forward
+    return F.nll_loss(input, target, weight=self.weight, ignore_index=self.ignore_index, reduction=self.reduction)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\nn\functional.py", line 2378, in nll_loss
+    raise ValueError("Expected 2 or more dimensions (got {})".format(dim))
+ValueError: Expected 2 or more dimensions (got 1)
+2022-12-04 12:17:34,942 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expected 2 or more dimensions (got 1)
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = self.model.get_loss(torch.from_numpy(y_pred_argmax), torch.from_numpy(y)).numpy()
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\skorch\net.py", line 1571, in get_loss
+    return self.criterion_(y_pred, y_true)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\nn\modules\loss.py", line 216, in forward
+    return F.nll_loss(input, target, weight=self.weight, ignore_index=self.ignore_index, reduction=self.reduction)
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\nn\functional.py", line 2378, in nll_loss
+    raise ValueError("Expected 2 or more dimensions (got {})".format(dim))
+ValueError: Expected 2 or more dimensions (got 1)
+2022-12-04 12:39:37,925 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:39:37,929 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:39:37,931 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | iteration over a 0-d tensor
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = self.get_loss(torch.from_numpy(y))
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 707, in get_loss
+    orig_loss_value = self.evaluate(dataset, eval_metrics=metrics_list)[
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 297, in evaluate
+    return self.evaluate_generator_model(test_dataset, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 363, in evaluate_generator_model
+    for x_batch, y_batch in dataloader:
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\tensor.py", line 585, in __iter__
+    raise TypeError('iteration over a 0-d tensor')
+TypeError: iteration over a 0-d tensor
+2022-12-04 12:39:37,927 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | iteration over a 0-d tensor
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = self.get_loss(torch.from_numpy(y))
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 707, in get_loss
+    orig_loss_value = self.evaluate(dataset, eval_metrics=metrics_list)[
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 297, in evaluate
+    return self.evaluate_generator_model(test_dataset, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 363, in evaluate_generator_model
+    for x_batch, y_batch in dataloader:
+  File "C:\Users\ahmed.saidani\Anaconda3\lib\site-packages\torch\tensor.py", line 585, in __iter__
+    raise TypeError('iteration over a 0-d tensor')
+TypeError: iteration over a 0-d tensor
+2022-12-04 12:42:49,559 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:42:49,563 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | cannot unpack non-iterable numpy.int64 object
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = self.get_loss(y)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 707, in get_loss
+    orig_loss_value = self.evaluate(dataset, eval_metrics=metrics_list)[
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 297, in evaluate
+    return self.evaluate_generator_model(test_dataset, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 363, in evaluate_generator_model
+    for x_batch, y_batch in dataloader:
+TypeError: cannot unpack non-iterable numpy.int64 object
+2022-12-04 12:42:49,568 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 12:42:49,571 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | cannot unpack non-iterable numpy.int64 object
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 330, in evaluate_model
+    loss = self.get_loss(y)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 707, in get_loss
+    orig_loss_value = self.evaluate(dataset, eval_metrics=metrics_list)[
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 297, in evaluate
+    return self.evaluate_generator_model(test_dataset, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 363, in evaluate_generator_model
+    for x_batch, y_batch in dataloader:
+TypeError: cannot unpack non-iterable numpy.int64 object
+2022-12-04 15:05:12,374 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 15:05:12,389 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'memory' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 329, in evaluate_model
+    data = '{ library: IBM; \n accuracy: ' + accuracy + '; \n loss: ' + loss + '; \n recall: ' + recall + '; \n precision: ' + precision + '; \n f1: ' + fone + '; \n memory: ' + memory + '; \n }'
+NameError: name 'memory' is not defined
+2022-12-04 15:05:17,574 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 15:05:17,576 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'memory' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 329, in evaluate_model
+    data = '{ library: IBM; \n accuracy: ' + accuracy + '; \n loss: ' + loss + '; \n recall: ' + recall + '; \n precision: ' + precision + '; \n f1: ' + fone + '; \n memory: ' + memory + '; \n }'
+NameError: name 'memory' is not defined
+2022-12-04 15:05:17,584 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | Expecting the test dataset to be of type tuple. However, test dataset is of type <class 'tuple'>
+2022-12-04 15:05:17,586 | 1.1.0 | ERROR | ibmfl.party.training.local_training_handler   | name 'memory' is not defined
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\party\training\local_training_handler.py", line 298, in eval_model
+    evaluations = self.fl_model.evaluate(test_dataset)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 294, in evaluate
+    return self.evaluate_model(x_test, y_test, eval_metrics)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\model\pytorch_fl_model.py", line 329, in evaluate_model
+    data = '{ library: IBM; \n accuracy: ' + accuracy + '; \n loss: ' + loss + '; \n recall: ' + recall + '; \n precision: ' + precision + '; \n f1: ' + fone + '; \n memory: ' + memory + '; \n }'
+NameError: name 'memory' is not defined
+2022-12-04 16:40:39,430 | 1.1.0 | ERROR | __main__                                      | Exception occurred during party evaluations.
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 252, in eval_model
+    self.fusion.evaluate_model()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 297, in evaluate_model
+    id_request = self.ph.eval_model_parties(lst_parties, data)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 523, in eval_model_parties
+    print("TTTTTTTTTTTTTTTT" + message)
+TypeError: can only concatenate str (not "Message") to str
+2022-12-04 16:40:39,437 | 1.1.0 | ERROR | __main__                                      | can only concatenate str (not "Message") to str
+Traceback (most recent call last):
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\aggregator.py", line 252, in eval_model
+    self.fusion.evaluate_model()
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\fusion\fusion_handler.py", line 297, in evaluate_model
+    id_request = self.ph.eval_model_parties(lst_parties, data)
+  File "C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\ibmfl\aggregator\protohandler\proto_handler.py", line 523, in eval_model_parties
+    print("TTTTTTTTTTTTTTTT" + message)
+TypeError: can only concatenate str (not "Message") to str
