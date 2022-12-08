@@ -15,7 +15,6 @@
 .DS_Store
 .env
 fml/data
-fml/libraries/fedml/fedml
 fml/libraries/ibm/federated-learning-lib-main
 .env/
 /.env
