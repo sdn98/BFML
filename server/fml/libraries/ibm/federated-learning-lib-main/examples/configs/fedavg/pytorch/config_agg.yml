@@ -9,7 +9,7 @@ connection:
   sync: false
 data:
   info:
-    npz_file: C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\examples\datasets\mnist.npz
+    npz_file: examples\datasets\mnist.npz
   name: MnistPytorchDataHandler
   path: ibmfl.util.data_handlers.mnist_pytorch_data_handler
 fusion:
@@ -17,10 +17,10 @@ fusion:
   path: ibmfl.aggregator.fusion.fedavg_fusion_handler
 hyperparams:
   global:
-    max_timeout: 150
+    max_timeout: 5000
     num_parties: 2
     rounds: 1
-    termination_accuracy: 0.9
+    termination_accuracy: 0.9999
   local:
     training:
       epochs: 1

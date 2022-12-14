@@ -12,7 +12,7 @@ connection:
   sync: false
 data:
   info:
-    npz_file: C:\Users\ahmed.saidani\Desktop\FMLB\server\fml\libraries\ibm\federated-learning-lib-main\examples\datasets\mnist.npz
+    npz_file: examples\data\mnist\random\data_party1.npz
   name: MnistPytorchDataHandler
   path: ibmfl.util.data_handlers.mnist_pytorch_data_handler
 local_training:
